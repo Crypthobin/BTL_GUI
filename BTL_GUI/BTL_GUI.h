@@ -5,6 +5,12 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 
+#define PORT 1111
+#define RPC_PORT 1234
+#define NETWORK "-pqcnet"
+#define DATA_DIR "../data"
+#define NODE "bitcoin-cli -pqcnet -datadir=../data -rpcport=1234 "
+
 class BTL_GUI : public QMainWindow
 {
 	Q_OBJECT
@@ -15,17 +21,7 @@ public:
 	QString wallet_name;
 	void start_demon()
 	{
-		system("start cmd /c bitcoind -pqcnet");
-		//STARTUPINFO StartupInfo = { 0 };
-		//PROCESS_INFORMATION ProcessInfo;
-		//char * cmd = "bitcoind -pqcnet";
-		//wchar_t wtext[20];
-		//mbstowcs(wtext, cmd, strlen(cmd) + 1);
-		//LPWSTR ptr = wtext;
-		//StartupInfo.cb = sizeof(STARTUPINFO);
-		//CreateProcess(NULL, ptr, NULL, NULL, 0, 0, NULL, NULL, &StartupInfo, &ProcessInfo);
-		//QString cmd = "bitcoind -pqcnet ";
-		//CmdExe(cmd);
+		system("start cmd /c bitcoind -pqcnet -addnode=127.0.0.1:18767 -txindex -port=18767 -datadir=../data -rpcport=1234");
 	}
 
 	QString parsing_data(QString input, QString target)
@@ -46,7 +42,7 @@ public:
 	bool Checkwallet()
 	{
 		QString result;
-		QString cmd = "bitcoin-cli -pqcnet listwalletdir ";
+		QString cmd = NODE "listwalletdir ";
 
 		cmd = cmd + " 2>&1";
 		result = CmdExe(cmd);
@@ -62,7 +58,7 @@ public:
 
 	void Loadwallet()
 	{
-		QString cmd = "bitcoin-cli -pqcnet loadwallet ";
+		QString cmd = NODE "loadwallet ";
 
 		cmd = cmd + wallet_name + " 2>&1";
 		CmdExe(cmd);
@@ -71,14 +67,14 @@ public:
 
 	void getbalance()
 	{
-		QString cmd = "bitcoin-cli -pqcnet getbalance ";
+		QString cmd = NODE "getbalance ";
 		QString result = CmdExe(cmd);
 		ui.balancelabel->setText(result);
 	}
 
 	void addressview()
 	{
-		QString cmd = "bitcoin-cli -pqcnet listreceivedbyaddress 1 true ";
+		QString cmd = NODE "listreceivedbyaddress 1 true ";
 		QString result = CmdExe(cmd);
 		result = parsing_data(result, "address");
 		ui.addresslabel->setText(result);
@@ -100,6 +96,7 @@ private slots:
 	void on_mining_clicked();
 	void on_resetwallet_clicked();
 	void on_send_clicked();
+	void on_txreset_clicked();
 
 private:
 	Ui::BTL_GUIClass ui;

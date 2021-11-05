@@ -1,5 +1,7 @@
 #include "BTL_GUI.h"
 
+
+
 BTL_GUI::BTL_GUI(QWidget *parent)
 	: QMainWindow(parent)
 {
@@ -37,7 +39,8 @@ QString BTL_GUI::CmdExe(QString cmd)
 // 시스템 종료
 void BTL_GUI::on_closeBtn_clicked()
 {
-	QString cmd = "bitcoin-cli -pqcnet stop ";
+	QString cmd = NODE"stop";
+	//cmd.append();
 	CmdExe(cmd);
 	close();
 }
@@ -51,7 +54,7 @@ void BTL_GUI::on_createWallet_clicked()
 
 	//BTL_GUI wallet;
 
-	cmd = "bitcoin-cli -pqcnet createwallet ";
+	cmd = NODE "createwallet ";
 
 	inputText = ui.walletname->text(); // text 가져오기
 
@@ -61,7 +64,7 @@ void BTL_GUI::on_createWallet_clicked()
 
 	wallet_name = parsing_data(result, "name");
 
-	cmd = "bitcoin-cli -pqcnet getnewaddress";
+	cmd = NODE "getnewaddress";
 	CmdExe(cmd);
 
 	setting();
@@ -87,13 +90,13 @@ void BTL_GUI::on_resetwallet_clicked()
 void BTL_GUI::on_mining_clicked()
 {
 	QString mining_count = ui.miningcount->text();
-	QString cmd = "bitcoin-cli -pqcnet -generate " + mining_count + " 2>&1";
+	QString cmd = NODE "-generate " + mining_count + " 2>&1";
 	
 	QString result = CmdExe(cmd);
 
 	result = parsing_data(result, "blocks");
 
-	cmd = "bitcoin-cli -pqcnet getblock " + result + " 2>&1";
+	cmd = NODE "getblock " + result + " 2>&1";
 
 	result = CmdExe(cmd);
 
@@ -118,9 +121,14 @@ void BTL_GUI::on_send_clicked()
 	amount = ui.amount->text();
 	fee_rate = ui.fee_rate->text();
 
-	QString cmd = "bitcoin-cli -pqcnet -named sendtoaddress address=" + address + " amount=" + amount + " fee_rate=" + fee_rate;
+	QString cmd = NODE "-named sendtoaddress address=" + address + " amount=" + amount + " fee_rate=" + fee_rate;
 	QString result = CmdExe(cmd);
 
 	ui.sendresult->setText("correct!\nTXID : " + result);
 }
 
+
+void BTL_GUI::on_txreset_clicked()
+{
+
+}

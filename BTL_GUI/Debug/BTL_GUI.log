@@ -1,2 +1,5 @@
-﻿  BTL_GUI.cpp
+﻿  moc BTL_GUI.h
+  BTL_GUI.cpp
+  main.cpp
+  moc_BTL_GUI.cpp
   BTL_GUI.vcxproj -> C:\Users\dmrb2\source\repos\BTL_GUI\Debug\BTL_GUI.exe
