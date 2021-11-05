@@ -14,8 +14,8 @@ QString BTL_GUI::CmdExe(QString cmd)
 	QString ret = NULL;
 	QString buf;
 	FILE* file = NULL;
-	char output[130] = { 0x00, };
-	char str[130] = { 0, };
+	char output[500] = { 0x00, };
+	char str[500] = { 0, };
 	qsnprintf(str, sizeof(str), "%s", cmd.toUtf8().constData());
 	file = _popen(str, "r");
 	//file = _popen("dir /w", "r");
@@ -103,6 +103,10 @@ void BTL_GUI::on_mining_clicked()
 	QJsonDocument doc = QJsonDocument::fromJson(result.toUtf8());
 	QJsonObject JON = doc.object();
 
+	//QJsonArray jsonArray = JON["tx"].toArray();
+	//int a = jsonArray.size();
+	//QString category = jsonArray.toObject().value("ID").toInt();
+
 	QString nonce = QString::number(JON.value("nonce").toInt());
 	QString block_hash = JON.value("hash").toString();
 	QString difficulty = QString::number(JON.value("difficulty").toDouble());
@@ -127,8 +131,25 @@ void BTL_GUI::on_send_clicked()
 	ui.sendresult->setText("correct!\nTXID : " + result);
 }
 
-
-void BTL_GUI::on_txreset_clicked()
+// 거래 내역 리셋
+void BTL_GUI::on_resettx_clicked()
 {
+	QString cmd = NODE "listtransactions \"*\" 10000";
+	QString result = CmdExe(cmd);
+
+	QJsonDocument doc = QJsonDocument::fromJson(result.toUtf8());
+	QJsonObject JON = doc.object();
+
+	//QJsonValue value2 = JON.value("");
+	//QJsonArray array2 = value2.toArray();
+
+	//foreach(const QJsonValue & v, array2)
+	//	qDebug() << v.toObject().value("ID").toInt();
+
+	//QJsonArray jsonArray = JON[" "].toArray();
+	//int a = jsonArray.size();
+
+	//QString category = JON.value("time").toString();
+
 
 }

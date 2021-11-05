@@ -2,8 +2,14 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_BTL_GUI.h"
+#include <Windows.h>
 #include <QJsonObject>
 #include <QJsonDocument>
+#include <QByteArray>
+#include <QJsonArray>
+#include <QList>
+#include <QDebug>
+#include <QFile>
 
 #define PORT 1111
 #define RPC_PORT 1234
@@ -19,9 +25,17 @@ public:
 	BTL_GUI(QWidget *parent = Q_NULLPTR);
 	QString BTL_GUI::CmdExe(QString cmd);
 	QString wallet_name;
+
+	QList<QString> address; // 상대방의 계좌 주소
+	QList<int> amount; // 송금 금액
+	QList<int> senceive; // 송신 : 1, 수신 : 2
+
 	void start_demon()
 	{
-		system("start cmd /c bitcoind -pqcnet -addnode=127.0.0.1:18767 -txindex -port=18767 -datadir=../data -rpcport=1234");
+		system("start cmd /c bitcoind -pqcnet -txindex -port=1111 -datadir=../data -rpcport=1234");
+		QString cmd = NODE "addnode \"192.168.0.40:1111\" \"add\"";
+		Sleep(1000);
+		CmdExe(cmd);
 	}
 
 	QString parsing_data(QString input, QString target)
@@ -96,7 +110,7 @@ private slots:
 	void on_mining_clicked();
 	void on_resetwallet_clicked();
 	void on_send_clicked();
-	void on_txreset_clicked();
+	void on_resettx_clicked();
 
 private:
 	Ui::BTL_GUIClass ui;

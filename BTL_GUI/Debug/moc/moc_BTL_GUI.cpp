@@ -40,13 +40,13 @@ QT_MOC_LITERAL(4, 53, 22), // "on_create_addr_clicked"
 QT_MOC_LITERAL(5, 76, 17), // "on_mining_clicked"
 QT_MOC_LITERAL(6, 94, 22), // "on_resetwallet_clicked"
 QT_MOC_LITERAL(7, 117, 15), // "on_send_clicked"
-QT_MOC_LITERAL(8, 133, 18) // "on_txreset_clicked"
+QT_MOC_LITERAL(8, 133, 18) // "on_resettx_clicked"
 
     },
     "BTL_GUI\0on_closeBtn_clicked\0\0"
     "on_createWallet_clicked\0on_create_addr_clicked\0"
     "on_mining_clicked\0on_resetwallet_clicked\0"
-    "on_send_clicked\0on_txreset_clicked"
+    "on_send_clicked\0on_resettx_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -96,7 +96,7 @@ void BTL_GUI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 3: _t->on_mining_clicked(); break;
         case 4: _t->on_resetwallet_clicked(); break;
         case 5: _t->on_send_clicked(); break;
-        case 6: _t->on_txreset_clicked(); break;
+        case 6: _t->on_resettx_clicked(); break;
         default: ;
         }
     }
