@@ -17,6 +17,7 @@
 #define DATA_DIR "../data"
 #define NODE "bitcoin-cli -pqcnet -datadir=../data -rpcport=1234 "
 
+
 class BTL_GUI : public QMainWindow
 {
 	Q_OBJECT
@@ -49,7 +50,7 @@ public:
 		QString result = input.mid(start_p);
 
 		result = result.mid(result.indexOf("\"", Qt::CaseInsensitive) + 1);
-		
+
 		return result.section("\"", 0, 0);
 	}
 
@@ -102,6 +103,50 @@ public:
 		addressview();
 	}
 
+	void blockinfo_parsing(QString blockhash)
+	{
+		QString cmd = NODE "getblock " + blockhash;
+		QString result = CmdExe(cmd);
+
+		QJsonDocument doc = QJsonDocument::fromJson(result.toUtf8());
+		QJsonObject JON = doc.object();
+
+		QString hash = JON.value("hash").toString();
+		QString confirmations = QString::number(JON.value("confirmations").toInt());
+		QString height = QString::number(JON.value("height").toInt());
+		QString version = QString::number(JON.value("version").toInt());
+		QString versionHex = JON.value("versionHex").toString();
+		QString merkleroot = JON.value("merkleroot").toString();
+		QString time = QString::number(JON.value("time").toInt()); // 시간 기준 체크
+		QString versions = QString::number(JON.value("version").toInt());
+		QString mediantime = QString::number(JON.value("mediantime").toInt());
+		QString nonce = QString::number(JON.value("nonce").toInt());
+		QString bits = JON.value("bits").toString();
+		QString difficulty = QString::number(JON.value("difficulty").toDouble());
+		QString chainwork = JON.value("chainwork").toString();
+		QString nTx = QString::number(JON.value("nTx").toInt());
+		QString previousblockhash = JON.value("previousblockhash").toString();
+		QString strippedsize = QString::number(JON.value("strippedsize").toInt());
+		QString size = QString::number(JON.value("size").toInt());
+		QString weight = QString::number(JON.value("weight").toInt());
+
+		QJsonArray tx_array = JON["txids"].toArray();
+		QString tx;
+		int tx_count = tx_array.size();
+
+		// 출력
+		QString view = "hash : " + hash + "\nconfirmations : " + confirmations + "\nheight : " + height + "\nversion : " + versions + \
+			"\nversionHex : " + versionHex + "\nmerkleroot : " + merkleroot + "\ntime : " + time + "\nversion : " + version + \
+			"\nmediantime : " + mediantime + "\nnonce : " + nonce + "\nbits : " + bits + "\ndifficulty : " + difficulty + \
+			"\nchainwork : " + chainwork + "\nnTx : " + nTx + "\npreviousblockhash : " + previousblockhash + "\nstrippedsize : " + strippedsize + \
+			"\nsize : " + size + "\nweight : " + weight + "\nTX : \n";
+
+		for (int i = 0; i < tx_count; i++)
+			view = view + tx_array[i].toString() + "\n";
+
+		ui.blockinfo->setText(view);
+	}
+
 
 private slots:
 	void on_closeBtn_clicked();
@@ -111,6 +156,18 @@ private slots:
 	void on_resetwallet_clicked();
 	void on_send_clicked();
 	void on_resettx_clicked();
+	void on_resetinfo_clicked();
+
+	void on_block1_clicked();
+	void on_block2_clicked();
+	void on_block3_clicked();
+	void on_block4_clicked();
+	void on_block5_clicked();
+	void on_block6_clicked();
+	void on_block7_clicked();
+	void on_block8_clicked();
+	void on_block9_clicked();
+	void on_block10_clicked();
 
 private:
 	Ui::BTL_GUIClass ui;

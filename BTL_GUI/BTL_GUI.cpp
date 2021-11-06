@@ -153,3 +153,97 @@ void BTL_GUI::on_resettx_clicked()
 
 
 }
+
+// 대시보드 리셋
+void BTL_GUI::on_resetinfo_clicked()
+{
+	QString cmd = NODE "getblockcount"; // 블록 갯수
+	QString getblockcount = CmdExe(cmd);
+	cmd = NODE "getconnectioncount"; // Node 수
+	QString getconnectioncount = CmdExe(cmd);
+	
+	int blockcount = getblockcount.toInt();
+
+	QString blockhash[10];
+	
+	for (int i = blockcount; i > blockcount - 10; i--)
+	{
+		cmd = NODE "getblockhash " + QString::number(i);
+		blockhash[blockcount - i] = CmdExe(cmd);
+	}
+
+	ui.block1->setText(blockhash[0]); ui.block2->setText(blockhash[1]);
+	ui.block3->setText(blockhash[2]); ui.block4->setText(blockhash[3]);
+	ui.block5->setText(blockhash[4]); ui.block6->setText(blockhash[5]);
+	ui.block7->setText(blockhash[6]); ui.block8->setText(blockhash[7]);
+	ui.block9->setText(blockhash[8]); ui.block10->setText(blockhash[9]);
+
+	ui.blocknum1->setText(QString::number(blockcount)); ui.blocknum2->setText(QString::number(blockcount-1));
+	ui.blocknum3->setText(QString::number(blockcount-2)); ui.blocknum4->setText(QString::number(blockcount-3));
+	ui.blocknum5->setText(QString::number(blockcount-4)); ui.blocknum6->setText(QString::number(blockcount-5));
+	ui.blocknum7->setText(QString::number(blockcount-6)); ui.blocknum8->setText(QString::number(blockcount-7));
+	ui.blocknum9->setText(QString::number(blockcount-8)); ui.blocknum10->setText(QString::number(blockcount-9));
+
+	ui.blockcount->setText(getblockcount);
+	ui.usercount->setText(getconnectioncount);
+}
+
+void BTL_GUI::on_block1_clicked()
+{
+	QString block = ui.block1->text();
+	blockinfo_parsing(block);
+}
+
+void BTL_GUI::on_block2_clicked()
+{
+	QString block = ui.block2->text();
+	blockinfo_parsing(block);
+}
+
+void BTL_GUI::on_block3_clicked()
+{
+	QString block = ui.block3->text();
+	blockinfo_parsing(block);
+}
+
+void BTL_GUI::on_block4_clicked()
+{
+	QString block = ui.block4->text();
+	blockinfo_parsing(block);
+}
+
+void BTL_GUI::on_block5_clicked()
+{
+	QString block = ui.block5->text();
+	blockinfo_parsing(block);
+}
+
+void BTL_GUI::on_block6_clicked()
+{
+	QString block = ui.block6->text();
+	blockinfo_parsing(block);
+}
+
+void BTL_GUI::on_block7_clicked()
+{
+	QString block = ui.block7->text();
+	blockinfo_parsing(block);
+}
+
+void BTL_GUI::on_block8_clicked()
+{
+	QString block = ui.block8->text();
+	blockinfo_parsing(block);
+}
+
+void BTL_GUI::on_block9_clicked()
+{
+	QString block = ui.block9->text();
+	blockinfo_parsing(block);
+}
+
+void BTL_GUI::on_block10_clicked()
+{
+	QString block = ui.block10->text();
+	blockinfo_parsing(block);
+}

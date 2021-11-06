@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1252</width>
-    <height>670</height>
+    <width>1572</width>
+    <height>762</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="closeBtn">
     <property name="geometry">
      <rect>
-      <x>1130</x>
-      <y>550</y>
+      <x>1470</x>
+      <y>650</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -45,8 +45,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1251</width>
-      <height>611</height>
+      <width>1571</width>
+      <height>691</height>
      </rect>
     </property>
    </widget>
@@ -115,7 +115,7 @@
    <widget class="QPushButton" name="mining">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>100</x>
       <y>330</y>
       <width>75</width>
       <height>23</height>
@@ -128,7 +128,7 @@
    <widget class="QSpinBox" name="miningcount">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>40</x>
       <y>330</y>
       <width>51</width>
       <height>22</height>
@@ -143,7 +143,7 @@
      <rect>
       <x>110</x>
       <y>160</y>
-      <width>431</width>
+      <width>391</width>
       <height>31</height>
      </rect>
     </property>
@@ -180,8 +180,8 @@
    <widget class="QLineEdit" name="sendaddr">
     <property name="geometry">
      <rect>
-      <x>610</x>
-      <y>30</y>
+      <x>540</x>
+      <y>10</y>
       <width>531</width>
       <height>21</height>
      </rect>
@@ -193,8 +193,8 @@
    <widget class="QLineEdit" name="amount">
     <property name="geometry">
      <rect>
-      <x>910</x>
-      <y>60</y>
+      <x>840</x>
+      <y>40</y>
       <width>71</width>
       <height>21</height>
      </rect>
@@ -206,8 +206,8 @@
    <widget class="QPushButton" name="send">
     <property name="geometry">
      <rect>
-      <x>1070</x>
-      <y>60</y>
+      <x>1000</x>
+      <y>40</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -219,8 +219,8 @@
    <widget class="QLineEdit" name="fee_rate">
     <property name="geometry">
      <rect>
-      <x>990</x>
-      <y>60</y>
+      <x>920</x>
+      <y>40</y>
       <width>61</width>
       <height>21</height>
      </rect>
@@ -232,8 +232,8 @@
    <widget class="QLabel" name="sendresult">
     <property name="geometry">
      <rect>
-      <x>610</x>
-      <y>90</y>
+      <x>540</x>
+      <y>70</y>
       <width>531</width>
       <height>51</height>
      </rect>
@@ -247,7 +247,7 @@
      <rect>
       <x>20</x>
       <y>380</y>
-      <width>531</width>
+      <width>481</width>
       <height>161</height>
      </rect>
     </property>
@@ -258,8 +258,8 @@
    <widget class="Line" name="line">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>0</y>
+      <x>520</x>
+      <y>10</y>
       <width>16</width>
       <height>601</height>
      </rect>
@@ -271,8 +271,8 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>160</y>
+      <x>550</x>
+      <y>140</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -284,8 +284,8 @@
    <widget class="QPushButton" name="resettx">
     <property name="geometry">
      <rect>
-      <x>699</x>
-      <y>157</y>
+      <x>629</x>
+      <y>137</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -297,10 +297,426 @@
    <widget class="QLabel" name="txresult">
     <property name="geometry">
      <rect>
-      <x>620</x>
+      <x>550</x>
+      <y>180</y>
+      <width>501</width>
+      <height>411</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="Line" name="line_2">
+    <property name="geometry">
+     <rect>
+      <x>1090</x>
+      <y>10</y>
+      <width>16</width>
+      <height>601</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="blockcount">
+    <property name="geometry">
+     <rect>
+      <x>1110</x>
+      <y>80</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::RichText</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>1160</x>
+      <y>50</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>전체 블록 갯수</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>1410</x>
+      <y>50</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>전체 사용자 수</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="usercount">
+    <property name="geometry">
+     <rect>
+      <x>1360</x>
+      <y>80</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="blocklist">
+    <property name="geometry">
+     <rect>
+      <x>1110</x>
+      <y>170</y>
+      <width>451</width>
+      <height>461</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>1110</x>
+      <y>140</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>전체 블록 정보</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="resetinfo">
+    <property name="geometry">
+     <rect>
+      <x>1300</x>
+      <y>130</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>새로 고침</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="block1">
+    <property name="geometry">
+     <rect>
+      <x>1180</x>
       <y>200</y>
-      <width>581</width>
-      <height>311</height>
+      <width>331</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="block2">
+    <property name="geometry">
+     <rect>
+      <x>1180</x>
+      <y>240</y>
+      <width>331</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="block3">
+    <property name="geometry">
+     <rect>
+      <x>1180</x>
+      <y>280</y>
+      <width>331</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="block4">
+    <property name="geometry">
+     <rect>
+      <x>1180</x>
+      <y>320</y>
+      <width>331</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="block5">
+    <property name="geometry">
+     <rect>
+      <x>1180</x>
+      <y>360</y>
+      <width>331</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="block8">
+    <property name="geometry">
+     <rect>
+      <x>1180</x>
+      <y>480</y>
+      <width>331</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="block10">
+    <property name="geometry">
+     <rect>
+      <x>1180</x>
+      <y>560</y>
+      <width>331</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="block9">
+    <property name="geometry">
+     <rect>
+      <x>1180</x>
+      <y>520</y>
+      <width>331</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="block6">
+    <property name="geometry">
+     <rect>
+      <x>1180</x>
+      <y>400</y>
+      <width>331</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="block7">
+    <property name="geometry">
+     <rect>
+      <x>1180</x>
+      <y>440</y>
+      <width>331</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="blocknum1">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>200</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="blocknum2">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>240</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="blocknum3">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>280</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="blocknum4">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>330</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="blocknum8">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>480</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="blocknum6">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>400</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="blocknum7">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>440</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="blocknum5">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>360</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="blocknum10">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>560</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="blocknum9">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>520</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="blockinfo">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>220</y>
+      <width>501</width>
+      <height>411</height>
      </rect>
     </property>
     <property name="text">
@@ -330,13 +746,42 @@
    <zorder>label_4</zorder>
    <zorder>resettx</zorder>
    <zorder>txresult</zorder>
+   <zorder>line_2</zorder>
+   <zorder>blockcount</zorder>
+   <zorder>label_5</zorder>
+   <zorder>label_6</zorder>
+   <zorder>usercount</zorder>
+   <zorder>blocklist</zorder>
+   <zorder>label_7</zorder>
+   <zorder>resetinfo</zorder>
+   <zorder>block1</zorder>
+   <zorder>block2</zorder>
+   <zorder>block3</zorder>
+   <zorder>block4</zorder>
+   <zorder>block5</zorder>
+   <zorder>block8</zorder>
+   <zorder>block10</zorder>
+   <zorder>block9</zorder>
+   <zorder>block6</zorder>
+   <zorder>block7</zorder>
+   <zorder>blocknum1</zorder>
+   <zorder>blocknum2</zorder>
+   <zorder>blocknum3</zorder>
+   <zorder>blocknum4</zorder>
+   <zorder>blocknum8</zorder>
+   <zorder>blocknum6</zorder>
+   <zorder>blocknum7</zorder>
+   <zorder>blocknum5</zorder>
+   <zorder>blocknum10</zorder>
+   <zorder>blocknum9</zorder>
+   <zorder>blockinfo</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1252</width>
+     <width>1572</width>
      <height>26</height>
     </rect>
    </property>
@@ -363,8 +808,8 @@
    <slot>creatwallet()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>210</x>
-     <y>171</y>
+     <x>204</x>
+     <y>92</y>
     </hint>
     <hint type="destinationlabel">
      <x>212</x>
