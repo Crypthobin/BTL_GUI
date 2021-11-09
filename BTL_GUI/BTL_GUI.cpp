@@ -39,7 +39,7 @@ QString BTL_GUI::CmdExe(QString cmd)
 // 시스템 종료
 void BTL_GUI::on_closeBtn_clicked()
 {
-	QString cmd = NODE"stop";
+	QString cmd = NODE "stop";
 	//cmd.append();
 	CmdExe(cmd);
 	close();
@@ -134,22 +134,15 @@ void BTL_GUI::on_send_clicked()
 // 거래 내역 리셋
 void BTL_GUI::on_resettx_clicked()
 {
-	/*
-	QString address; // 송수신자의 계좌 주소
-	int amount; // 금액
-	int send_receive; // 송신(1), 수신(2)
-	QString time; // 시간
-	*/
-	TX_info transaction[TX_LIST_COUNT];
-	TX_info prev_tx[TX_LIST_COUNT];
+	TX_info transaction[TX_LIST_COUNT] = { 0, };
+	TX_info prev_tx[TX_LIST_COUNT] = { 0, };
 
-	init_tx_list(prev_tx);
+	prev_tx[0].save_tx = init_tx_list(prev_tx);
 
 	int compare_count = 0;
 	int tx_start_p = 0;
 	int tx_list = 0;
 	int tx_count = 0;
-
 
 	QString cmd;
 	QString result;
@@ -168,6 +161,8 @@ void BTL_GUI::on_resettx_clicked()
 	while (iscontinue)
 	{
 		cmd = NODE "listtransactions \"*\" " + QString::number(TX_SCAN_COUNT) + " " + QString::number(tx_start_p);
+		HWND hWndConsole = GetConsoleWindow();
+		ShowWindow(hWndConsole, SW_HIDE);
 		result = CmdExe(cmd);
 		if (result == "[\r\n]\r\n")
 			break;
@@ -200,10 +195,10 @@ void BTL_GUI::on_resettx_clicked()
 
 					transaction[tx_list].address = tx_address_parsing(vin_txid, vin_n);
 				}
-				transaction[tx_list].amount = tx_obj.value("amount").toDouble();
+				transaction[tx_list].amount = fabs(tx_obj.value("amount").toDouble());
 				// transaction[tx_list].amount = tx_obj.value("amount").toDouble();
 				if (tx_obj.value("confirmations").toInt() == 0)
-					transaction[tx_list].check_mining = "Mining Fail!";
+					transaction[tx_list].check_mining = "Mining Wait....";
 				else
 					transaction[tx_list].check_mining = "Mining Success!";
 
@@ -213,17 +208,22 @@ void BTL_GUI::on_resettx_clicked()
 					if (transaction[tx_list].check_mining != prev_tx[compare_count].check_mining) compare_count++;
 					else
 					{
-						for (int j = tx_list; j < tx_list + prev_tx[0].save_tx; j++)
+						int count = 0;
+						for (int j = tx_list; j < tx_list + prev_tx[0].save_tx - compare_count; j++)
 						{
-							transaction[j].txid = prev_tx[j - tx_list].txid;
-							transaction[j].address = prev_tx[j - tx_list].address;
-							transaction[j].amount = prev_tx[j - tx_list].amount;
-							transaction[j].send_receive = prev_tx[j - tx_list].send_receive;
-							transaction[j].check_mining = prev_tx[j - tx_list].check_mining;
-
-							if (j == TX_LIST_COUNT - 1) break;
+							transaction[j].txid = prev_tx[j - tx_list + compare_count].txid;
+							transaction[j].address = prev_tx[j - tx_list + compare_count].address;
+							transaction[j].amount = prev_tx[j - tx_list + compare_count].amount;
+							transaction[j].send_receive = prev_tx[j - tx_list + compare_count].send_receive;
+							transaction[j].check_mining = prev_tx[j - tx_list + compare_count].check_mining;
+							if (j == TX_LIST_COUNT - 1)
+							{
+								tx_list++;
+								break;
+							}
+							count++;
 						}
-						tx_list++;
+						tx_list = tx_list + count;
 						iscontinue = false;
 						break;
 					}
@@ -232,7 +232,6 @@ void BTL_GUI::on_resettx_clicked()
 				time_t epch = time_int + 32400;
 				char *current_time = asctime(gmtime(&epch));
 				transaction[tx_list].time = current_time;
-
 
 				//if (tx_list == 0) transaction[0].tx_obj = tx_obj;
 				tx_list++;
@@ -245,12 +244,7 @@ void BTL_GUI::on_resettx_clicked()
 		}
 		tx_start_p += TX_SCAN_COUNT;
 	}
-
-	view_tx_list(transaction);
-
-	// prev_tx[0].tx_obj = tx_array[0].toObject();
-	// memcpy(prev_tx, transaction, sizeof(transaction));
-	// prev_tx[0].tx_obj = transaction[0].tx_obj;
+	view_tx_list(transaction, tx_list);
 	prev_tx[0].save_tx = tx_list;
 }
 
@@ -264,25 +258,23 @@ void BTL_GUI::on_resetinfo_clicked()
 
 	int blockcount = getblockcount.toInt();
 
-	QString blockhash[10];
+	QString blockhash[BLOCK_LIST_COUNT];
 
-	for (int i = blockcount; i > blockcount - 10; i--)
+
+	for (int i = blockcount; i > blockcount - BLOCK_LIST_COUNT; i--)
 	{
 		cmd = NODE "getblockhash " + QString::number(i);
 		blockhash[blockcount - i] = CmdExe(cmd);
 	}
 
-	ui.block1->setText(blockhash[0]); ui.block2->setText(blockhash[1]);
-	ui.block3->setText(blockhash[2]); ui.block4->setText(blockhash[3]);
-	ui.block5->setText(blockhash[4]); ui.block6->setText(blockhash[5]);
-	ui.block7->setText(blockhash[6]); ui.block8->setText(blockhash[7]);
-	ui.block9->setText(blockhash[8]); ui.block10->setText(blockhash[9]);
+	QPushButton *block_group[BLOCK_LIST_COUNT] = { ui.block1, ui.block2, ui.block3, ui.block4, ui.block5, ui.block6, ui.block7,ui.block8, ui.block9, ui.block10 };
+	QLabel *blocknum_group[BLOCK_LIST_COUNT] = { ui.blocknum1, ui.blocknum2, ui.blocknum3, ui.blocknum4, ui.blocknum5, ui.blocknum6, ui.blocknum7,ui.blocknum8, ui.blocknum9, ui.blocknum10 };
 
-	ui.blocknum1->setText(QString::number(blockcount)); ui.blocknum2->setText(QString::number(blockcount - 1));
-	ui.blocknum3->setText(QString::number(blockcount - 2)); ui.blocknum4->setText(QString::number(blockcount - 3));
-	ui.blocknum5->setText(QString::number(blockcount - 4)); ui.blocknum6->setText(QString::number(blockcount - 5));
-	ui.blocknum7->setText(QString::number(blockcount - 6)); ui.blocknum8->setText(QString::number(blockcount - 7));
-	ui.blocknum9->setText(QString::number(blockcount - 8)); ui.blocknum10->setText(QString::number(blockcount - 9));
+	for (int i = 0; i < BLOCK_LIST_COUNT; i++)
+	{
+		block_group[i]->setText(blockhash[i]);
+		blocknum_group[i]->setText(QString::number(blockcount - i));
+	}
 
 	ui.blockcount->setText(getblockcount);
 	ui.usercount->setText(getconnectioncount);

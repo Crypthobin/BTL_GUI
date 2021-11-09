@@ -4,8 +4,6 @@
 
 int main(int argc, char *argv[])
 {
-	HWND hWnd = GetConsoleWindow();
-	ShowWindow(hWnd, SW_HIDE);
 	QApplication a(argc, argv);
 	BTL_GUI w;
 

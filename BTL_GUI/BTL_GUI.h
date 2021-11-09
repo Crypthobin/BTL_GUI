@@ -17,8 +17,10 @@
 #define DATA_DIR "../data"
 #define NODE "bitcoin-cli -pqcnet -datadir=../data -rpcport=1234 "
 
+#define BLOCK_LIST_COUNT 10 // 블록 목록 갱신 갯수 -> 변경 시 void BTL_GUI::on_resetinfo_clicked()의 출력 수 수정
+
 #define TX_LIST_COUNT 7 // 거래 내역 갱신 갯수 -> 변경 시 출력을 위해 init_tx_list(TX_Info *tx)와 view_tx_list(TX_Info *tx) 함수 수정 필요
-#define TX_SCAN_COUNT 100 // 최근 TX_SCAN_COUNT개의 거래 내역을 조회( TX_SCAN_COUNT번을 주기로 TX_LIST_COUNT만큼 검색 될 때까지 반복 )
+#define TX_SCAN_COUNT 10000 // 최근 TX_SCAN_COUNT개의 거래 내역을 조회( TX_SCAN_COUNT번을 주기로 TX_LIST_COUNT만큼 검색 될 때까지 반복 )
 
 typedef struct TX_Info {
 	int save_tx;
@@ -40,6 +42,8 @@ public:
 	BTL_GUI(QWidget *parent = Q_NULLPTR);
 	QString BTL_GUI::CmdExe(QString cmd);
 	QString wallet_name;
+
+
 
 	void start_demon()
 	{
@@ -147,7 +151,7 @@ public:
 
 		time_t epch = time_int + 32400;
 		char *current_time = asctime(gmtime(&epch));
-		
+
 		QString time = current_time;
 
 		// 출력
@@ -163,87 +167,62 @@ public:
 		ui.blockinfo->setText(view);
 	}
 
-	QString tx_address_parsing(QString _tx ,int n)
+	QString tx_address_parsing(QString _tx, int n)
 	{
 		QString cmd = NODE "getrawtransaction " + _tx + " true";
 		QString result = CmdExe(cmd);
 		QJsonDocument doc = QJsonDocument::fromJson(result.toUtf8());
 		QJsonObject tx_obj = doc.object();
-		
+
 		QJsonArray tx_array = tx_obj["vout"].toArray();
 
 		int a = tx_array.size();
-		
+
 		tx_obj = tx_array[0].toObject();
 		tx_obj = tx_obj["scriptPubKey"].toObject();
 		QString res = tx_obj["address"].toString();
 		return res;
 	}
 
-	void init_tx_list(TX_Info *tx)
+	int init_tx_list(TX_Info *tx)
 	{
-		// amount copy
-		tx[0].amount = ui.tx_amount->text().toDouble(); tx[1].amount = ui.tx_amount_2->text().toDouble();
-		tx[2].amount = ui.tx_amount_3->text().toDouble(); tx[3].amount = ui.tx_amount_4->text().toDouble();
-		tx[4].amount = ui.tx_amount_5->text().toDouble(); tx[5].amount = ui.tx_amount_6->text().toDouble();
-		tx[6].amount = ui.tx_amount_7->text().toDouble();
+		QLabel *tx_amount_group[TX_LIST_COUNT] = { ui.tx_amount,  ui.tx_amount_2 ,ui.tx_amount_3,ui.tx_amount_4, ui.tx_amount_5, ui.tx_amount_6, ui.tx_amount_7 };
+		QLabel *tx_addr_group[TX_LIST_COUNT] = { ui.tx_addr,  ui.tx_addr_2 ,ui.tx_addr_3,ui.tx_addr_4, ui.tx_addr_5, ui.tx_addr_6, ui.tx_addr_7 };
+		QLabel *tx_mining_group[TX_LIST_COUNT] = { ui.tx_mining,  ui.tx_mining_2 ,ui.tx_mining_3,ui.tx_mining_4, ui.tx_mining_5, ui.tx_mining_6, ui.tx_mining_7 };
+		QLabel *tx_txid_group[TX_LIST_COUNT] = { ui.tx_id,  ui.tx_id_2 ,ui.tx_id_3,ui.tx_id_4, ui.tx_id_5, ui.tx_id_6, ui.tx_id_7 };
+		QLabel *tx_send_group[TX_LIST_COUNT] = { ui.tx_send,  ui.tx_send_2 ,ui.tx_send_3,ui.tx_send_4, ui.tx_send_5, ui.tx_send_6, ui.tx_send_7 };
+		int List_count = 0;
 
-		// address copy
-		tx[0].address = ui.tx_addr->text(); tx[1].address = ui.tx_addr_2->text();
-		tx[2].address = ui.tx_addr_3->text(); tx[3].address = ui.tx_addr_4->text();
-		tx[4].address = ui.tx_addr_5->text(); tx[5].address = ui.tx_addr_6->text();
-		tx[6].address = ui.tx_addr_7->text();
+		for (int i = 0; i < TX_LIST_COUNT; i++)
+		{
+			tx[i].txid = tx_txid_group[i]->text();
+			if (tx[i].txid == NULL) return i;
 
-		// mining copy
-		tx[0].check_mining = ui.tx_mining->text(); tx[1].check_mining = ui.tx_mining_2->text();
-		tx[2].check_mining = ui.tx_mining_3->text(); tx[3].check_mining = ui.tx_mining_4->text();
-		tx[4].check_mining = ui.tx_mining_5->text(); tx[5].check_mining = ui.tx_mining_6->text();
-		tx[6].check_mining = ui.tx_mining_7->text();
-
-		// txid copy
-		tx[0].txid = ui.tx_id->text(); tx[1].txid = ui.tx_id_2->text();
-		tx[2].txid = ui.tx_id_3->text(); tx[3].txid = ui.tx_id_4->text();
-		tx[4].txid = ui.tx_id_5->text(); tx[5].txid = ui.tx_id_6->text();
-		tx[6].txid = ui.tx_id_7->text();
-
-		// send/receive copy
-		tx[0].send_receive = ui.tx_send->text(); tx[1].send_receive = ui.tx_send_2->text();
-		tx[2].send_receive = ui.tx_send_3->text(); tx[3].send_receive = ui.tx_send_4->text();
-		tx[4].send_receive = ui.tx_send_5->text(); tx[5].send_receive = ui.tx_send_6->text();
-		tx[6].send_receive = ui.tx_send_7->text();
+			tx[i].amount = tx_amount_group[i]->text().toDouble();
+			tx[i].address = tx_addr_group[i]->text();
+			tx[i].check_mining = tx_mining_group[i]->text();
+			tx[i].send_receive = tx_send_group[i]->text();
+		}
+		return TX_LIST_COUNT;
 	}
 
-	void view_tx_list(TX_Info *tx)
+	void view_tx_list(TX_Info *tx, int tx_count)
 	{
 		// amount copy
-		ui.tx_amount->setText(QString::number(tx[0].amount)); ui.tx_amount_2->setText(QString::number(tx[1].amount));
-		ui.tx_amount_3->setText(QString::number(tx[2].amount)); ui.tx_amount_4->setText(QString::number(tx[3].amount));
-		ui.tx_amount_5->setText(QString::number(tx[4].amount)); ui.tx_amount_6->setText(QString::number(tx[5].amount));
-		ui.tx_amount_7->setText(QString::number(tx[6].amount));
+		QLabel *tx_amount_group[TX_LIST_COUNT] = { ui.tx_amount,  ui.tx_amount_2 ,ui.tx_amount_3,ui.tx_amount_4, ui.tx_amount_5, ui.tx_amount_6, ui.tx_amount_7 };
+		QLabel *tx_addr_group[TX_LIST_COUNT] = { ui.tx_addr,  ui.tx_addr_2 ,ui.tx_addr_3,ui.tx_addr_4, ui.tx_addr_5, ui.tx_addr_6, ui.tx_addr_7 };
+		QLabel *tx_mining_group[TX_LIST_COUNT] = { ui.tx_mining,  ui.tx_mining_2 ,ui.tx_mining_3,ui.tx_mining_4, ui.tx_mining_5, ui.tx_mining_6, ui.tx_mining_7 };
+		QLabel *tx_txid_group[TX_LIST_COUNT] = { ui.tx_id,  ui.tx_id_2 ,ui.tx_id_3,ui.tx_id_4, ui.tx_id_5, ui.tx_id_6, ui.tx_id_7 };
+		QLabel *tx_send_group[TX_LIST_COUNT] = { ui.tx_send,  ui.tx_send_2 ,ui.tx_send_3,ui.tx_send_4, ui.tx_send_5, ui.tx_send_6, ui.tx_send_7 };
 
-		// address copy
-		ui.tx_addr->setText(tx[0].address); ui.tx_addr_2->setText(tx[1].address);
-		ui.tx_addr_3->setText(tx[2].address); ui.tx_addr_4->setText(tx[3].address);
-		ui.tx_addr_5->setText(tx[4].address); ui.tx_addr_6->setText(tx[5].address);
-		ui.tx_addr_7->setText(tx[6].address);
-
-		// mining copy
-		ui.tx_mining->setText(tx[0].check_mining); ui.tx_mining_2->setText(tx[1].check_mining);
-		ui.tx_mining_3->setText(tx[2].check_mining); ui.tx_mining_4->setText(tx[3].check_mining);
-		ui.tx_mining_5->setText(tx[4].check_mining); ui.tx_mining_6->setText(tx[5].check_mining);
-		ui.tx_mining_7->setText(tx[6].check_mining);
-
-		// txid copy
-		ui.tx_id->setText(tx[0].txid); ui.tx_id_2->setText(tx[1].txid);
-		ui.tx_id_3->setText(tx[2].txid); ui.tx_id_4->setText(tx[3].txid);
-		ui.tx_id_5->setText(tx[4].txid); ui.tx_id_6->setText(tx[5].txid);
-		ui.tx_id_7->setText(tx[6].txid);
-
-		// send/receive copy
-		ui.tx_send->setText(tx[0].send_receive); ui.tx_send_2->setText(tx[1].send_receive);
-		ui.tx_send_3->setText(tx[2].send_receive); ui.tx_send_4->setText(tx[3].send_receive);
-		ui.tx_send_5->setText(tx[4].send_receive); ui.tx_send_6->setText(tx[5].send_receive);
-		ui.tx_send_7->setText(tx[6].send_receive);
+		for (int i = 0; i < tx_count; i++)
+		{
+			tx_amount_group[i]->setText(QString::number(tx[i].amount));
+			tx_addr_group[i]->setText(tx[i].address);
+			tx_mining_group[i]->setText(tx[i].check_mining);
+			tx_txid_group[i]->setText(tx[i].txid);
+			tx_send_group[i]->setText(tx[i].send_receive);
+		}
 	}
 
 
