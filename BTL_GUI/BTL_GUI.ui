@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="closeBtn">
     <property name="geometry">
      <rect>
-      <x>1470</x>
-      <y>650</y>
+      <x>1490</x>
+      <y>0</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -294,17 +294,17 @@
      <string>새로 고침</string>
     </property>
    </widget>
-   <widget class="QLabel" name="txresult">
+   <widget class="QLabel" name="tx_num_label">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>180</y>
-      <width>501</width>
-      <height>411</height>
+      <x>540</x>
+      <y>170</y>
+      <width>41</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string/>
+     <string>No.1</string>
     </property>
    </widget>
    <widget class="Line" name="line_2">
@@ -324,9 +324,9 @@
     <property name="geometry">
      <rect>
       <x>1110</x>
-      <y>80</y>
+      <y>60</y>
       <width>201</width>
-      <height>41</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
@@ -343,7 +343,7 @@
     <property name="geometry">
      <rect>
       <x>1160</x>
-      <y>50</y>
+      <y>30</y>
       <width>111</width>
       <height>16</height>
      </rect>
@@ -356,7 +356,7 @@
     <property name="geometry">
      <rect>
       <x>1410</x>
-      <y>50</y>
+      <y>30</y>
       <width>111</width>
       <height>16</height>
      </rect>
@@ -369,9 +369,9 @@
     <property name="geometry">
      <rect>
       <x>1360</x>
-      <y>80</y>
+      <y>60</y>
       <width>201</width>
-      <height>41</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
@@ -384,8 +384,8 @@
    <widget class="QLabel" name="blocklist">
     <property name="geometry">
      <rect>
-      <x>1110</x>
-      <y>170</y>
+      <x>1100</x>
+      <y>330</y>
       <width>451</width>
       <height>461</height>
      </rect>
@@ -398,7 +398,7 @@
     <property name="geometry">
      <rect>
       <x>1110</x>
-      <y>140</y>
+      <y>90</y>
       <width>111</width>
       <height>16</height>
      </rect>
@@ -411,7 +411,7 @@
     <property name="geometry">
      <rect>
       <x>1300</x>
-      <y>130</y>
+      <y>80</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -423,8 +423,8 @@
    <widget class="QPushButton" name="block1">
     <property name="geometry">
      <rect>
-      <x>1180</x>
-      <y>200</y>
+      <x>1170</x>
+      <y>120</y>
       <width>331</width>
       <height>23</height>
      </rect>
@@ -436,8 +436,8 @@
    <widget class="QPushButton" name="block2">
     <property name="geometry">
      <rect>
-      <x>1180</x>
-      <y>240</y>
+      <x>1170</x>
+      <y>140</y>
       <width>331</width>
       <height>23</height>
      </rect>
@@ -449,8 +449,8 @@
    <widget class="QPushButton" name="block3">
     <property name="geometry">
      <rect>
-      <x>1180</x>
-      <y>280</y>
+      <x>1170</x>
+      <y>160</y>
       <width>331</width>
       <height>23</height>
      </rect>
@@ -462,8 +462,8 @@
    <widget class="QPushButton" name="block4">
     <property name="geometry">
      <rect>
-      <x>1180</x>
-      <y>320</y>
+      <x>1170</x>
+      <y>180</y>
       <width>331</width>
       <height>23</height>
      </rect>
@@ -475,8 +475,8 @@
    <widget class="QPushButton" name="block5">
     <property name="geometry">
      <rect>
-      <x>1180</x>
-      <y>360</y>
+      <x>1170</x>
+      <y>200</y>
       <width>331</width>
       <height>23</height>
      </rect>
@@ -488,8 +488,8 @@
    <widget class="QPushButton" name="block8">
     <property name="geometry">
      <rect>
-      <x>1180</x>
-      <y>480</y>
+      <x>1170</x>
+      <y>260</y>
       <width>331</width>
       <height>23</height>
      </rect>
@@ -501,8 +501,8 @@
    <widget class="QPushButton" name="block10">
     <property name="geometry">
      <rect>
-      <x>1180</x>
-      <y>560</y>
+      <x>1170</x>
+      <y>300</y>
       <width>331</width>
       <height>23</height>
      </rect>
@@ -514,8 +514,8 @@
    <widget class="QPushButton" name="block9">
     <property name="geometry">
      <rect>
-      <x>1180</x>
-      <y>520</y>
+      <x>1170</x>
+      <y>280</y>
       <width>331</width>
       <height>23</height>
      </rect>
@@ -527,8 +527,8 @@
    <widget class="QPushButton" name="block6">
     <property name="geometry">
      <rect>
-      <x>1180</x>
-      <y>400</y>
+      <x>1170</x>
+      <y>220</y>
       <width>331</width>
       <height>23</height>
      </rect>
@@ -540,8 +540,8 @@
    <widget class="QPushButton" name="block7">
     <property name="geometry">
      <rect>
-      <x>1180</x>
-      <y>440</y>
+      <x>1170</x>
+      <y>240</y>
       <width>331</width>
       <height>23</height>
      </rect>
@@ -554,7 +554,7 @@
     <property name="geometry">
      <rect>
       <x>1100</x>
-      <y>200</y>
+      <y>120</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -570,7 +570,7 @@
     <property name="geometry">
      <rect>
       <x>1100</x>
-      <y>240</y>
+      <y>140</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -586,7 +586,7 @@
     <property name="geometry">
      <rect>
       <x>1100</x>
-      <y>280</y>
+      <y>165</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -602,7 +602,7 @@
     <property name="geometry">
      <rect>
       <x>1100</x>
-      <y>330</y>
+      <y>186</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -618,7 +618,7 @@
     <property name="geometry">
      <rect>
       <x>1100</x>
-      <y>480</y>
+      <y>270</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -634,7 +634,7 @@
     <property name="geometry">
      <rect>
       <x>1100</x>
-      <y>400</y>
+      <y>230</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -650,7 +650,7 @@
     <property name="geometry">
      <rect>
       <x>1100</x>
-      <y>440</y>
+      <y>240</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -666,7 +666,7 @@
     <property name="geometry">
      <rect>
       <x>1100</x>
-      <y>360</y>
+      <y>200</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -682,7 +682,7 @@
     <property name="geometry">
      <rect>
       <x>1100</x>
-      <y>560</y>
+      <y>300</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -698,7 +698,7 @@
     <property name="geometry">
      <rect>
       <x>1100</x>
-      <y>520</y>
+      <y>280</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -713,10 +713,816 @@
    <widget class="QLabel" name="blockinfo">
     <property name="geometry">
      <rect>
-      <x>560</x>
-      <y>220</y>
-      <width>501</width>
-      <height>411</height>
+      <x>1100</x>
+      <y>330</y>
+      <width>471</width>
+      <height>361</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_id_label">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>200</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>txid :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_amount_label">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>170</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Tol </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_send">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>170</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_addr_label">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>200</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>계좌 : </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_amount">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>170</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_addr">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>200</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_id">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>200</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_addr_2">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>270</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_id_label_2">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>270</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>txid :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_id_2">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>270</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_amount_2">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>240</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_num_label_2">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>240</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>No.2</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_send_2">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>240</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_addr_label_2">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>270</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>계좌 : </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_amount_label_2">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>240</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Tol </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_addr_3">
+    <property name="geometry">
+     <rect>
+      <x>865</x>
+      <y>340</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_id_label_3">
+    <property name="geometry">
+     <rect>
+      <x>535</x>
+      <y>340</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>txid :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_id_3">
+    <property name="geometry">
+     <rect>
+      <x>575</x>
+      <y>340</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_amount_3">
+    <property name="geometry">
+     <rect>
+      <x>635</x>
+      <y>310</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_num_label_3">
+    <property name="geometry">
+     <rect>
+      <x>535</x>
+      <y>310</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>No.3</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_send_3">
+    <property name="geometry">
+     <rect>
+      <x>745</x>
+      <y>310</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_addr_label_3">
+    <property name="geometry">
+     <rect>
+      <x>815</x>
+      <y>340</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>계좌 : </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_amount_label_3">
+    <property name="geometry">
+     <rect>
+      <x>665</x>
+      <y>310</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Tol </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_addr_4">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>420</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_id_label_4">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>420</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>txid :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_id_4">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>420</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_amount_4">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>390</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_num_label_4">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>390</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>No.4</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_send_4">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>390</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_addr_label_4">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>420</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>계좌 : </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_amount_label_4">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>390</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Tol </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_addr_5">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>490</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_id_label_5">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>490</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>txid :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_id_5">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>490</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_amount_5">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>460</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_num_label_5">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>460</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>No.5</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_send_5">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>460</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_addr_label_5">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>490</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>계좌 : </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_amount_label_5">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>460</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Tol </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_addr_6">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>560</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_id_label_6">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>560</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>txid :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_id_6">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>560</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_amount_6">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>530</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_num_label_6">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>530</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>No.6</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_send_6">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>530</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_addr_label_6">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>560</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>계좌 : </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_amount_label_6">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>530</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Tol </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_addr_7">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>620</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_id_label_7">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>620</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>txid :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_id_7">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>620</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_amount_7">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>590</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_num_label_7">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>590</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>No.7</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_send_7">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>590</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_addr_label_7">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>620</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>계좌 : </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_amount_label_7">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>590</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Tol </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_mining">
+    <property name="geometry">
+     <rect>
+      <x>810</x>
+      <y>170</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_mining_2">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>230</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_mining_3">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>300</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_mining_4">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>380</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_mining_5">
+    <property name="geometry">
+     <rect>
+      <x>810</x>
+      <y>450</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_mining_6">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>520</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tx_mining_7">
+    <property name="geometry">
+     <rect>
+      <x>810</x>
+      <y>590</y>
+      <width>131</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -745,7 +1551,7 @@
    <zorder>line</zorder>
    <zorder>label_4</zorder>
    <zorder>resettx</zorder>
-   <zorder>txresult</zorder>
+   <zorder>tx_num_label</zorder>
    <zorder>line_2</zorder>
    <zorder>blockcount</zorder>
    <zorder>label_5</zorder>
@@ -775,6 +1581,68 @@
    <zorder>blocknum10</zorder>
    <zorder>blocknum9</zorder>
    <zorder>blockinfo</zorder>
+   <zorder>tx_id_label</zorder>
+   <zorder>tx_amount_label</zorder>
+   <zorder>tx_send</zorder>
+   <zorder>tx_addr_label</zorder>
+   <zorder>tx_amount</zorder>
+   <zorder>tx_addr</zorder>
+   <zorder>tx_id</zorder>
+   <zorder>tx_addr_2</zorder>
+   <zorder>tx_id_label_2</zorder>
+   <zorder>tx_id_2</zorder>
+   <zorder>tx_amount_2</zorder>
+   <zorder>tx_num_label_2</zorder>
+   <zorder>tx_send_2</zorder>
+   <zorder>tx_addr_label_2</zorder>
+   <zorder>tx_amount_label_2</zorder>
+   <zorder>tx_addr_3</zorder>
+   <zorder>tx_id_label_3</zorder>
+   <zorder>tx_id_3</zorder>
+   <zorder>tx_amount_3</zorder>
+   <zorder>tx_num_label_3</zorder>
+   <zorder>tx_send_3</zorder>
+   <zorder>tx_addr_label_3</zorder>
+   <zorder>tx_amount_label_3</zorder>
+   <zorder>tx_addr_4</zorder>
+   <zorder>tx_id_label_4</zorder>
+   <zorder>tx_id_4</zorder>
+   <zorder>tx_amount_4</zorder>
+   <zorder>tx_num_label_4</zorder>
+   <zorder>tx_send_4</zorder>
+   <zorder>tx_addr_label_4</zorder>
+   <zorder>tx_amount_label_4</zorder>
+   <zorder>tx_addr_5</zorder>
+   <zorder>tx_id_label_5</zorder>
+   <zorder>tx_id_5</zorder>
+   <zorder>tx_amount_5</zorder>
+   <zorder>tx_num_label_5</zorder>
+   <zorder>tx_send_5</zorder>
+   <zorder>tx_addr_label_5</zorder>
+   <zorder>tx_amount_label_5</zorder>
+   <zorder>tx_addr_6</zorder>
+   <zorder>tx_id_label_6</zorder>
+   <zorder>tx_id_6</zorder>
+   <zorder>tx_amount_6</zorder>
+   <zorder>tx_num_label_6</zorder>
+   <zorder>tx_send_6</zorder>
+   <zorder>tx_addr_label_6</zorder>
+   <zorder>tx_amount_label_6</zorder>
+   <zorder>tx_addr_7</zorder>
+   <zorder>tx_id_label_7</zorder>
+   <zorder>tx_id_7</zorder>
+   <zorder>tx_amount_7</zorder>
+   <zorder>tx_num_label_7</zorder>
+   <zorder>tx_send_7</zorder>
+   <zorder>tx_addr_label_7</zorder>
+   <zorder>tx_amount_label_7</zorder>
+   <zorder>tx_mining</zorder>
+   <zorder>tx_mining_2</zorder>
+   <zorder>tx_mining_3</zorder>
+   <zorder>tx_mining_4</zorder>
+   <zorder>tx_mining_5</zorder>
+   <zorder>tx_mining_6</zorder>
+   <zorder>tx_mining_7</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
