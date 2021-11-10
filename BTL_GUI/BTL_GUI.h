@@ -47,7 +47,9 @@ public:
 
 	void start_demon()
 	{
-		system("start cmd /c bitcoind -pqcnet -txindex -port=1111 -datadir=../data -rpcport=1234");
+		//system("start /min bitcoind -pqcnet -txindex -port=1111 -datadir=../data -rpcport=1234");
+		//system("start /min cmd");
+		WinExec("bitcoind -pqcnet -txindex -port=1111 -datadir=../data -rpcport=1234", SW_HIDE);
 		QString cmd = NODE "addnode \"192.168.0.40:1111\" \"add\"";
 		Sleep(1000);
 		CmdExe(cmd);
@@ -73,7 +75,6 @@ public:
 		QString result;
 		QString cmd = NODE "listwalletdir ";
 
-		cmd = cmd + " 2>&1";
 		result = CmdExe(cmd);
 
 		// 지갑이 이미 존재
@@ -89,7 +90,7 @@ public:
 	{
 		QString cmd = NODE "loadwallet ";
 
-		cmd = cmd + wallet_name + " 2>&1";
+		cmd = cmd + wallet_name;/* + " 2>&1"*/
 		CmdExe(cmd);
 		// ui.walletlabel->setText(wallet_name);
 	}
@@ -184,13 +185,16 @@ public:
 		return res;
 	}
 
-	int init_tx_list(TX_Info *tx)
+	void init_blockhash_list(QString *blockhash, int blocklist, QPushButton **block_group)
 	{
-		QLabel *tx_amount_group[TX_LIST_COUNT] = { ui.tx_amount,  ui.tx_amount_2 ,ui.tx_amount_3,ui.tx_amount_4, ui.tx_amount_5, ui.tx_amount_6, ui.tx_amount_7 };
-		QLabel *tx_addr_group[TX_LIST_COUNT] = { ui.tx_addr,  ui.tx_addr_2 ,ui.tx_addr_3,ui.tx_addr_4, ui.tx_addr_5, ui.tx_addr_6, ui.tx_addr_7 };
-		QLabel *tx_mining_group[TX_LIST_COUNT] = { ui.tx_mining,  ui.tx_mining_2 ,ui.tx_mining_3,ui.tx_mining_4, ui.tx_mining_5, ui.tx_mining_6, ui.tx_mining_7 };
-		QLabel *tx_txid_group[TX_LIST_COUNT] = { ui.tx_id,  ui.tx_id_2 ,ui.tx_id_3,ui.tx_id_4, ui.tx_id_5, ui.tx_id_6, ui.tx_id_7 };
-		QLabel *tx_send_group[TX_LIST_COUNT] = { ui.tx_send,  ui.tx_send_2 ,ui.tx_send_3,ui.tx_send_4, ui.tx_send_5, ui.tx_send_6, ui.tx_send_7 };
+		for (int i = 0; i < blocklist; i++)
+		{
+			blockhash[i] = block_group[i]->text();
+		}
+	}
+
+	int init_tx_list(TX_Info *tx, QLabel **tx_amount_group, QLabel **tx_addr_group, QLabel **tx_mining_group, QLabel **tx_txid_group, QLabel **tx_send_group)
+	{
 		int List_count = 0;
 
 		for (int i = 0; i < TX_LIST_COUNT; i++)
@@ -206,15 +210,8 @@ public:
 		return TX_LIST_COUNT;
 	}
 
-	void view_tx_list(TX_Info *tx, int tx_count)
+	void view_tx_list(TX_Info *tx, int tx_count, QLabel **tx_amount_group, QLabel **tx_addr_group, QLabel **tx_mining_group, QLabel **tx_txid_group, QLabel **tx_send_group)
 	{
-		// amount copy
-		QLabel *tx_amount_group[TX_LIST_COUNT] = { ui.tx_amount,  ui.tx_amount_2 ,ui.tx_amount_3,ui.tx_amount_4, ui.tx_amount_5, ui.tx_amount_6, ui.tx_amount_7 };
-		QLabel *tx_addr_group[TX_LIST_COUNT] = { ui.tx_addr,  ui.tx_addr_2 ,ui.tx_addr_3,ui.tx_addr_4, ui.tx_addr_5, ui.tx_addr_6, ui.tx_addr_7 };
-		QLabel *tx_mining_group[TX_LIST_COUNT] = { ui.tx_mining,  ui.tx_mining_2 ,ui.tx_mining_3,ui.tx_mining_4, ui.tx_mining_5, ui.tx_mining_6, ui.tx_mining_7 };
-		QLabel *tx_txid_group[TX_LIST_COUNT] = { ui.tx_id,  ui.tx_id_2 ,ui.tx_id_3,ui.tx_id_4, ui.tx_id_5, ui.tx_id_6, ui.tx_id_7 };
-		QLabel *tx_send_group[TX_LIST_COUNT] = { ui.tx_send,  ui.tx_send_2 ,ui.tx_send_3,ui.tx_send_4, ui.tx_send_5, ui.tx_send_6, ui.tx_send_7 };
-
 		for (int i = 0; i < tx_count; i++)
 		{
 			tx_amount_group[i]->setText(QString::number(tx[i].amount));

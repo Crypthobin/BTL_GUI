@@ -1,6 +1,8 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include "BTL_GUI.h"
 
-
+#include <string>
 
 BTL_GUI::BTL_GUI(QWidget *parent)
 	: QMainWindow(parent)
@@ -9,31 +11,131 @@ BTL_GUI::BTL_GUI(QWidget *parent)
 	this->setWindowTitle("Crypthobin");
 }
 
+//////////////////////////////////////////////
+int runCmd(const char* cmd, std::string& outOutput) {
+
+	HANDLE g_hChildStd_OUT_Rd = NULL;
+	HANDLE g_hChildStd_OUT_Wr = NULL;
+	HANDLE g_hChildStd_ERR_Rd = NULL;
+	HANDLE g_hChildStd_ERR_Wr = NULL;
+
+	SECURITY_ATTRIBUTES sa;
+	// Set the bInheritHandle flag so pipe handles are inherited.
+	sa.nLength = sizeof(SECURITY_ATTRIBUTES);
+	sa.bInheritHandle = TRUE;
+	sa.lpSecurityDescriptor = NULL;
+	if (!CreatePipe(&g_hChildStd_ERR_Rd, &g_hChildStd_ERR_Wr, &sa, 0)) { return 1; } // Create a pipe for the child process's STDERR.
+	if (!SetHandleInformation(g_hChildStd_ERR_Rd, HANDLE_FLAG_INHERIT, 0)) { return 1; } // Ensure the read handle to the pipe for STDERR is not inherited.
+	if (!CreatePipe(&g_hChildStd_OUT_Rd, &g_hChildStd_OUT_Wr, &sa, 0)) { return 1; } // Create a pipe for the child process's STDOUT.
+	if (!SetHandleInformation(g_hChildStd_OUT_Rd, HANDLE_FLAG_INHERIT, 0)) { return 1; } // Ensure the read handle to the pipe for STDOUT is not inherited
+
+	PROCESS_INFORMATION piProcInfo;
+	STARTUPINFOA siStartInfo;
+	bool bSuccess = FALSE;
+
+	// Set up members of the PROCESS_INFORMATION structure.
+	ZeroMemory(&piProcInfo, sizeof(PROCESS_INFORMATION));
+
+	// Set up members of the STARTUPINFO structure.
+	// This structure specifies the STDERR and STDOUT handles for redirection.
+	ZeroMemory(&siStartInfo, sizeof(STARTUPINFO));
+	siStartInfo.cb = sizeof(STARTUPINFO);
+	siStartInfo.hStdError = g_hChildStd_ERR_Wr;
+	siStartInfo.hStdOutput = g_hChildStd_OUT_Wr;
+	siStartInfo.dwFlags |= STARTF_USESTDHANDLES;
+
+	// Create the child process.
+	bSuccess = CreateProcessA(
+		NULL,             // program name
+		(char*)cmd,       // command line
+		NULL,             // process security attributes
+		NULL,             // primary thread security attributes
+		TRUE,             // handles are inherited
+		CREATE_NO_WINDOW, // creation flags (this is what hides the window)
+		NULL,             // use parent's environment
+		NULL,             // use parent's current directory
+		&siStartInfo,     // STARTUPINFO pointer
+		&piProcInfo       // receives PROCESS_INFORMATION
+	);
+
+	CloseHandle(g_hChildStd_ERR_Wr);
+	CloseHandle(g_hChildStd_OUT_Wr);
+
+	// read output
+#define BUFSIZE 4096
+	DWORD dwRead;
+	CHAR chBuf[BUFSIZE];
+	bool bSuccess2 = FALSE;
+	for (;;) { // read stdout
+		bSuccess2 = ReadFile(g_hChildStd_OUT_Rd, chBuf, BUFSIZE, &dwRead, NULL);
+		if (!bSuccess2 || dwRead == 0) break;
+		std::string s(chBuf, dwRead);
+		outOutput += s;
+	}
+	dwRead = 0;
+	for (;;) { // read stderr
+		bSuccess2 = ReadFile(g_hChildStd_ERR_Rd, chBuf, BUFSIZE, &dwRead, NULL);
+		if (!bSuccess2 || dwRead == 0) break;
+		std::string s(chBuf, dwRead);
+		outOutput += s;
+	}
+
+	// The remaining open handles are cleaned up when this process terminates.
+	// To avoid resource leaks in a larger application,
+	// close handles explicitly.
+	return 0;
+}
+//////////////////////////////////////
+
+
+
+//QString BTL_GUI::CmdExe(QString cmd)
+//{
+//	QString ret = NULL;
+//	QString buf;
+//	FILE* file = NULL;
+//	char output[500] = { 0x00, };
+//	char str[500] = { 0, };
+//	qsnprintf(str, sizeof(str), "%s", cmd.toUtf8().constData());
+//	file = _popen(str, "r");
+//	//file = _popen("dir /w", "r");
+//	if (file == NULL) {
+//		return ret;
+//	}
+//
+//	/* Read pipe until end of file, or an error occurs. */
+//	while (fgets(output, 128, file))
+//	{
+//		ret.append(output);
+//	}
+//
+//	fclose(file);
+//
+//	ret.replace("\n", "\r\n");
+//
+//	return ret;
+//}
+
+
 QString BTL_GUI::CmdExe(QString cmd)
 {
 	QString ret = NULL;
-	QString buf;
-	FILE* file = NULL;
-	char output[500] = { 0x00, };
-	char str[500] = { 0, };
-	qsnprintf(str, sizeof(str), "%s", cmd.toUtf8().constData());
-	file = _popen(str, "r");
-	//file = _popen("dir /w", "r");
-	if (file == NULL) {
-		return ret;
-	}
 
-	/* Read pipe until end of file, or an error occurs. */
-	while (fgets(output, 128, file))
-	{
-		ret.append(output);
-	}
+	QByteArray ba = cmd.toLocal8Bit();
+	const char *c_cmd = ba.data();
 
-	fclose(file);
+	std::string str; 
+	runCmd(c_cmd, str);
 
-	ret.replace("\n", "\r\n");
+	size_t s_size = str.size();
+	if(str[s_size - 2] == '\r')
+		str = str.substr(0, s_size - 2);
 
-	return ret;
+	//ret.append(str.c_str());
+
+	//ret.replace("\n", "\r\n");
+
+	return QString::fromStdString(str);
 }
 
 // 시스템 종료
@@ -58,7 +160,7 @@ void BTL_GUI::on_createWallet_clicked()
 
 	inputText = ui.walletname->text(); // text 가져오기
 
-	cmd = cmd + inputText + " 2>&1";
+	cmd = cmd + inputText;/* + " 2>&1"*/
 
 	result = CmdExe(cmd);
 
@@ -90,13 +192,13 @@ void BTL_GUI::on_resetwallet_clicked()
 void BTL_GUI::on_mining_clicked()
 {
 	QString mining_count = ui.miningcount->text();
-	QString cmd = NODE "-generate " + mining_count + " 2>&1";
+	QString cmd = NODE "-generate " + mining_count/* + " 2>&1"*/;
 
 	QString result = CmdExe(cmd);
 
 	result = parsing_data(result, "blocks");
 
-	cmd = NODE "getblock " + result + " 2>&1";
+	cmd = NODE "getblock " + result/* + " 2>&1"*/;
 
 	result = CmdExe(cmd);
 
@@ -137,7 +239,13 @@ void BTL_GUI::on_resettx_clicked()
 	TX_info transaction[TX_LIST_COUNT] = { 0, };
 	TX_info prev_tx[TX_LIST_COUNT] = { 0, };
 
-	prev_tx[0].save_tx = init_tx_list(prev_tx);
+	QLabel *tx_amount_group[TX_LIST_COUNT] = { ui.tx_amount,  ui.tx_amount_2 ,ui.tx_amount_3,ui.tx_amount_4, ui.tx_amount_5, ui.tx_amount_6, ui.tx_amount_7 };
+	QLabel *tx_addr_group[TX_LIST_COUNT] = { ui.tx_addr,  ui.tx_addr_2 ,ui.tx_addr_3,ui.tx_addr_4, ui.tx_addr_5, ui.tx_addr_6, ui.tx_addr_7 };
+	QLabel *tx_mining_group[TX_LIST_COUNT] = { ui.tx_mining,  ui.tx_mining_2 ,ui.tx_mining_3,ui.tx_mining_4, ui.tx_mining_5, ui.tx_mining_6, ui.tx_mining_7 };
+	QLabel *tx_txid_group[TX_LIST_COUNT] = { ui.tx_id,  ui.tx_id_2 ,ui.tx_id_3,ui.tx_id_4, ui.tx_id_5, ui.tx_id_6, ui.tx_id_7 };
+	QLabel *tx_send_group[TX_LIST_COUNT] = { ui.tx_send,  ui.tx_send_2 ,ui.tx_send_3,ui.tx_send_4, ui.tx_send_5, ui.tx_send_6, ui.tx_send_7 };
+
+	prev_tx[0].save_tx = init_tx_list(prev_tx, tx_amount_group, tx_addr_group, tx_mining_group, tx_txid_group, tx_send_group);
 
 	int compare_count = 0;
 	int tx_start_p = 0;
@@ -164,7 +272,7 @@ void BTL_GUI::on_resettx_clicked()
 		HWND hWndConsole = GetConsoleWindow();
 		ShowWindow(hWndConsole, SW_HIDE);
 		result = CmdExe(cmd);
-		if (result == "[\r\n]\r\n")
+		if (result == "[\r\n]")
 			break;
 		doc = QJsonDocument::fromJson(result.toUtf8());
 		tx_array = doc.array();
@@ -244,7 +352,7 @@ void BTL_GUI::on_resettx_clicked()
 		}
 		tx_start_p += TX_SCAN_COUNT;
 	}
-	view_tx_list(transaction, tx_list);
+	view_tx_list(transaction, tx_list, tx_amount_group, tx_addr_group, tx_mining_group, tx_txid_group, tx_send_group);
 	prev_tx[0].save_tx = tx_list;
 }
 
@@ -256,28 +364,52 @@ void BTL_GUI::on_resetinfo_clicked()
 	cmd = NODE "getconnectioncount"; // Node 수
 	QString getconnectioncount = CmdExe(cmd);
 
+	int blocklist, temp, prev_hashcount = 0;
 	int blockcount = getblockcount.toInt();
-
-	QString blockhash[BLOCK_LIST_COUNT];
-
-
-	for (int i = blockcount; i > blockcount - BLOCK_LIST_COUNT; i--)
+	if (blockcount < BLOCK_LIST_COUNT)
 	{
-		cmd = NODE "getblockhash " + QString::number(i);
-		blockhash[blockcount - i] = CmdExe(cmd);
+		blocklist = blockcount;
+		temp = -1;
+	}
+	else
+	{
+		blocklist = BLOCK_LIST_COUNT;
+		temp = blockcount - BLOCK_LIST_COUNT;
 	}
 
 	QPushButton *block_group[BLOCK_LIST_COUNT] = { ui.block1, ui.block2, ui.block3, ui.block4, ui.block5, ui.block6, ui.block7,ui.block8, ui.block9, ui.block10 };
 	QLabel *blocknum_group[BLOCK_LIST_COUNT] = { ui.blocknum1, ui.blocknum2, ui.blocknum3, ui.blocknum4, ui.blocknum5, ui.blocknum6, ui.blocknum7,ui.blocknum8, ui.blocknum9, ui.blocknum10 };
 
-	for (int i = 0; i < BLOCK_LIST_COUNT; i++)
-	{
-		block_group[i]->setText(blockhash[i]);
-		blocknum_group[i]->setText(QString::number(blockcount - i));
-	}
+	QString blockhash[BLOCK_LIST_COUNT];
+	QString prev_blockhash[BLOCK_LIST_COUNT];
 
-	ui.blockcount->setText(getblockcount);
-	ui.usercount->setText(getconnectioncount);
+	init_blockhash_list(prev_blockhash, blocklist, block_group);
+
+	if (blockcount != 0)
+	{
+		for (int i = blockcount; i > temp; i--)
+		{
+			cmd = NODE "getblockhash " + QString::number(i);
+			blockhash[blockcount - i] = CmdExe(cmd);
+			if (blockhash[blockcount - i] == prev_blockhash[prev_hashcount])
+			{
+				for (int j = i; j > temp; j--)
+				{
+					blockhash[blockcount - j] = prev_blockhash[prev_hashcount];
+					prev_hashcount++;
+				}
+				break;
+			}
+		}
+		for (int i = 0; i < blocklist; i++)
+		{
+			block_group[i]->setText(blockhash[i]);
+			blocknum_group[i]->setText(QString::number(blockcount - i));
+		}
+
+		ui.blockcount->setText(getblockcount);
+		ui.usercount->setText(getconnectioncount);
+	}
 }
 
 void BTL_GUI::on_block1_clicked()
