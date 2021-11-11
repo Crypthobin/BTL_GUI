@@ -43,8 +43,6 @@ public:
 	QString BTL_GUI::CmdExe(QString cmd);
 	QString wallet_name;
 
-
-
 	void start_demon()
 	{
 		//system("start /min bitcoind -pqcnet -txindex -port=1111 -datadir=../data -rpcport=1234");

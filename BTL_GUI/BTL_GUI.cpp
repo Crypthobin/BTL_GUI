@@ -124,12 +124,15 @@ QString BTL_GUI::CmdExe(QString cmd)
 	QByteArray ba = cmd.toLocal8Bit();
 	const char *c_cmd = ba.data();
 
-	std::string str; 
+	std::string str;
 	runCmd(c_cmd, str);
 
 	size_t s_size = str.size();
-	if(str[s_size - 2] == '\r')
-		str = str.substr(0, s_size - 2);
+	if (s_size > 2)
+	{
+		if (str[s_size - 2] == '\r')
+			str = str.substr(0, s_size - 2);
+	}
 
 	//ret.append(str.c_str());
 
@@ -150,6 +153,8 @@ void BTL_GUI::on_closeBtn_clicked()
 // 지갑 생성 및 계좌 생성 ( 출력 포함 )
 void BTL_GUI::on_createWallet_clicked()
 {
+	
+
 	QString result;
 	QString cmd;
 	QString inputText;
@@ -170,6 +175,8 @@ void BTL_GUI::on_createWallet_clicked()
 	CmdExe(cmd);
 
 	setting();
+
+	
 }
 
 // 주소 생성 버튼 ( 미 사용 )
@@ -182,15 +189,20 @@ void BTL_GUI::on_create_addr_clicked()
 // 잔액 새로 고침 버튼
 void BTL_GUI::on_resetwallet_clicked()
 {
+	
 	//QString cmd = "bitcoin-cli -pqcnet listaddressgroupings 2>&1";
 	//QString result = CmdExe(cmd);
 	//ui.addrlabel->setText(result);
 	getbalance();
+
+	
 }
 
 // 채굴 시작 버튼
 void BTL_GUI::on_mining_clicked()
 {
+	
+
 	QString mining_count = ui.miningcount->text();
 	QString cmd = NODE "-generate " + mining_count/* + " 2>&1"*/;
 
@@ -217,11 +229,15 @@ void BTL_GUI::on_mining_clicked()
 	result = "Mining Success!\nBlock Hash : " + block_hash + "\nnonce : " + nonce + "\ndifficulty : " + difficulty + "\nTX : " + tx_count;
 
 	ui.miningresult->setText(result);
+
+	//
 }
 
 // 송금 버튼
 void BTL_GUI::on_send_clicked()
 {
+	
+
 	QString address, amount, fee_rate;
 	address = ui.sendaddr->text();
 	amount = ui.amount->text();
@@ -230,7 +246,9 @@ void BTL_GUI::on_send_clicked()
 	QString cmd = NODE "-named sendtoaddress address=" + address + " amount=" + amount + " fee_rate=" + fee_rate;
 	QString result = CmdExe(cmd);
 
-	ui.sendresult->setText("correct!\nTXID : " + result);
+	ui.sendresult->setText("Success!\nTXID : " + result);
+
+	
 }
 
 // 거래 내역 리셋
@@ -354,11 +372,15 @@ void BTL_GUI::on_resettx_clicked()
 	}
 	view_tx_list(transaction, tx_list, tx_amount_group, tx_addr_group, tx_mining_group, tx_txid_group, tx_send_group);
 	prev_tx[0].save_tx = tx_list;
+
+	
 }
 
 // 대시보드 리셋
 void BTL_GUI::on_resetinfo_clicked()
 {
+	
+
 	QString cmd = NODE "getblockcount"; // 블록 갯수
 	QString getblockcount = CmdExe(cmd);
 	cmd = NODE "getconnectioncount"; // Node 수
@@ -410,6 +432,8 @@ void BTL_GUI::on_resetinfo_clicked()
 		ui.blockcount->setText(getblockcount);
 		ui.usercount->setText(getconnectioncount);
 	}
+
+	
 }
 
 void BTL_GUI::on_block1_clicked()
