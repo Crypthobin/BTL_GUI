@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1572</width>
-    <height>762</height>
+    <height>991</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -43,10 +43,10 @@
    <widget class="QGraphicsView" name="graphicsView">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
+      <x>-90</x>
+      <y>-30</y>
       <width>1571</width>
-      <height>691</height>
+      <height>971</height>
      </rect>
     </property>
    </widget>
@@ -246,7 +246,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>380</y>
+      <y>370</y>
       <width>481</width>
       <height>161</height>
      </rect>
@@ -1529,6 +1529,149 @@
      <string/>
     </property>
    </widget>
+   <widget class="QLabel" name="mining1">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>680</y>
+      <width>451</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="mining2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>710</y>
+      <width>451</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="mining3">
+    <property name="geometry">
+     <rect>
+      <x>29</x>
+      <y>750</y>
+      <width>460</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="mining4">
+    <property name="geometry">
+     <rect>
+      <x>29</x>
+      <y>800</y>
+      <width>460</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="mining5">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>840</y>
+      <width>451</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="mining_amount1">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>680</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="mining_amount2">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>710</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="mining_amount3">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>750</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="mining_amount4">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>790</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="mining_amount5">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>830</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="my_mining_button">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>680</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>채굴 목록</string>
+    </property>
+   </widget>
    <zorder>graphicsView</zorder>
    <zorder>closeBtn</zorder>
    <zorder>createWallet</zorder>
@@ -1643,6 +1786,17 @@
    <zorder>tx_mining_5</zorder>
    <zorder>tx_mining_6</zorder>
    <zorder>tx_mining_7</zorder>
+   <zorder>mining1</zorder>
+   <zorder>mining2</zorder>
+   <zorder>mining3</zorder>
+   <zorder>mining4</zorder>
+   <zorder>mining5</zorder>
+   <zorder>mining_amount1</zorder>
+   <zorder>mining_amount2</zorder>
+   <zorder>mining_amount3</zorder>
+   <zorder>mining_amount4</zorder>
+   <zorder>mining_amount5</zorder>
+   <zorder>my_mining_button</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

@@ -201,8 +201,6 @@ void BTL_GUI::on_resetwallet_clicked()
 // 채굴 시작 버튼
 void BTL_GUI::on_mining_clicked()
 {
-	
-
 	QString mining_count = ui.miningcount->text();
 	QString cmd = NODE "-generate " + mining_count/* + " 2>&1"*/;
 
@@ -372,15 +370,116 @@ void BTL_GUI::on_resettx_clicked()
 	}
 	view_tx_list(transaction, tx_list, tx_amount_group, tx_addr_group, tx_mining_group, tx_txid_group, tx_send_group);
 	prev_tx[0].save_tx = tx_list;
+}
 
-	
+void BTL_GUI::on_my_mining_button_clicked()
+{
+	Mining_info mining_info[MINING_LIST_COUNT] = { 0, };
+	Mining_info prev_mining_info[MINING_LIST_COUNT] = { 0, };
+
+	QLabel *mining_group[MINING_LIST_COUNT] = { ui.mining1,  ui.mining2 ,ui.mining3,ui.mining4, ui.mining5};
+	QLabel *mining_amount_group[MINING_LIST_COUNT] = { ui.mining_amount1,  ui.mining_amount2 ,ui.mining_amount3,ui.mining_amount4, ui.mining_amount5};
+	//QLabel *tx_mining_group[TX_LIST_COUNT] = { ui.tx_mining,  ui.tx_mining_2 ,ui.tx_mining_3,ui.tx_mining_4, ui.tx_mining_5, ui.tx_mining_6, ui.tx_mining_7 };
+	//QLabel *tx_txid_group[TX_LIST_COUNT] = { ui.tx_id,  ui.tx_id_2 ,ui.tx_id_3,ui.tx_id_4, ui.tx_id_5, ui.tx_id_6, ui.tx_id_7 };
+	//QLabel *tx_send_group[TX_LIST_COUNT] = { ui.tx_send,  ui.tx_send_2 ,ui.tx_send_3,ui.tx_send_4, ui.tx_send_5, ui.tx_send_6, ui.tx_send_7 };
+
+	prev_mining_info[0].save_mining = init_mining_list(prev_mining_info, mining_group, mining_amount_group);
+
+	int compare_count = 0;
+	int mining_start_p = 0;
+	int mining_list = 0;
+	int mining_count = 0;
+
+	QString cmd;
+	QString result;
+	QJsonDocument doc;
+	QJsonObject mining_obj;
+	QJsonArray mining_array;
+	QJsonArray mining_array2;
+
+	// 수신 일때, 송신자의 주소를 알기 위한 vin의 정보
+	//QJsonObject vin_obj;
+	//QJsonArray vin_array;
+	//int vin_n;
+	//QString vin_txid;
+
+	bool iscontinue = true;
+	while (iscontinue)
+	{
+		cmd = NODE "listtransactions \"*\" " + QString::number(MINING_LIST_COUNT) + " " + QString::number(mining_start_p);
+		result = CmdExe(cmd);
+		if (result == "[\r\n]")
+			break;
+		doc = QJsonDocument::fromJson(result.toUtf8());
+		mining_array = doc.array();
+		mining_count = mining_array.size();
+
+		for (int i = mining_count - 1; i >= 0; i--)
+		{
+			mining_obj = mining_array[i].toObject();
+			mining_info[mining_list].category = mining_obj.value("category").toString();
+			if (mining_info[mining_list].category == "immature" || mining_info[mining_list].category == "generate")
+			{
+				if (mining_info[mining_list].category == "immature") mining_info[mining_list].category == "immature";
+				else mining_info[mining_list].category == "generate";
+
+				mining_info[mining_list].amount = fabs(mining_obj.value("amount").toDouble());
+				mining_info[mining_list].blockhash = mining_obj.value("blockhash").toString();
+
+				int time_int = mining_obj.value("time").toInt();
+				time_t epch = time_int + 32400;
+				char *current_time = asctime(gmtime(&epch));
+				mining_info[mining_list].time = current_time;
+
+				//if (t x_obj.value("confirmations").toInt() == 0)
+				//	transaction[tx_list].check_mining = "Mining Wait....";
+				//else
+				//	transaction[tx_list].check_mining = "Mining Success!";
+
+				// 이전 최근 목록과 같으면.. 이후 TX copy
+				if (mining_info[mining_list].blockhash == prev_mining_info[compare_count].blockhash && mining_info[mining_list].time == prev_mining_info[compare_count].time)
+				{
+					if (mining_info[mining_list].category != prev_mining_info[compare_count].category) compare_count++;
+					else
+					{
+						int count = 0;
+						for (int j = mining_list; j < mining_list + prev_mining_info[0].save_mining - compare_count; j++)
+						{
+							mining_info[j].blockhash = prev_mining_info[j - mining_list + compare_count].blockhash;
+							mining_info[j].category = prev_mining_info[j - mining_list + compare_count].category;
+							mining_info[j].amount = prev_mining_info[j - mining_list + compare_count].amount;
+							mining_info[j].time = prev_mining_info[j - mining_list + compare_count].time;
+							// mining_info[j].check_mining = prev_mining_info[j - mining_list + compare_count].check_mining;
+							if (j == MINING_LIST_COUNT - 1)
+							{
+								mining_list++;
+								break;
+							}
+							count++;
+						}
+						mining_list = mining_list + count;
+						iscontinue = false;
+						break;
+					}
+				}
+				//if (tx_list == 0) transaction[0].tx_obj = tx_obj;
+				mining_list++;
+			}
+			if (mining_list == MINING_LIST_COUNT)
+			{
+				iscontinue = false;
+				break;
+			}
+		}
+		mining_start_p += TX_SCAN_COUNT;
+	}
+	view_mining_list(mining_info, mining_list, mining_group, mining_amount_group);
+	prev_mining_info[0].save_mining = mining_list;
 }
 
 // 대시보드 리셋
 void BTL_GUI::on_resetinfo_clicked()
 {
-	
-
 	QString cmd = NODE "getblockcount"; // 블록 갯수
 	QString getblockcount = CmdExe(cmd);
 	cmd = NODE "getconnectioncount"; // Node 수
@@ -405,7 +504,7 @@ void BTL_GUI::on_resetinfo_clicked()
 	QString blockhash[BLOCK_LIST_COUNT];
 	QString prev_blockhash[BLOCK_LIST_COUNT];
 
-	init_blockhash_list(prev_blockhash, blocklist, block_group);
+	//init_blockhash_list(prev_blockhash, blocklist, block_group);
 
 	if (blockcount != 0)
 	{
@@ -428,12 +527,9 @@ void BTL_GUI::on_resetinfo_clicked()
 			block_group[i]->setText(blockhash[i]);
 			blocknum_group[i]->setText(QString::number(blockcount - i));
 		}
-
 		ui.blockcount->setText(getblockcount);
 		ui.usercount->setText(getconnectioncount);
 	}
-
-	
 }
 
 void BTL_GUI::on_block1_clicked()

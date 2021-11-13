@@ -18,6 +18,7 @@
 #define NODE "bitcoin-cli -pqcnet -datadir=../data -rpcport=1234 "
 
 #define BLOCK_LIST_COUNT 10 // 블록 목록 갱신 갯수 -> 변경 시 void BTL_GUI::on_resetinfo_clicked()의 출력 수 수정
+#define MINING_LIST_COUNT 5 // 블록 목록 갱신 갯수 -> 변경 시 void BTL_GUI::on_resetinfo_clicked()의 출력 수 수정
 
 #define TX_LIST_COUNT 7 // 거래 내역 갱신 갯수 -> 변경 시 출력을 위해 init_tx_list(TX_Info *tx)와 view_tx_list(TX_Info *tx) 함수 수정 필요
 #define TX_SCAN_COUNT 10000 // 최근 TX_SCAN_COUNT개의 거래 내역을 조회( TX_SCAN_COUNT번을 주기로 TX_LIST_COUNT만큼 검색 될 때까지 반복 )
@@ -33,6 +34,16 @@ typedef struct TX_Info {
 	QString time; // 시간
 	QString check_mining;
 }TX_info;
+
+typedef struct mining_Info {
+	int save_mining;
+
+	double amount; // 금액
+	QString category; // "send" "receive"
+	QString time; // 시간
+	QString blockhash;
+}Mining_info;
+
 
 class BTL_GUI : public QMainWindow
 {
@@ -220,6 +231,35 @@ public:
 		}
 	}
 
+	int init_mining_list(Mining_info *mining_info, QLabel **mining_group, QLabel **mining_amount_group)
+	{
+		int List_count = 0;
+
+		for (int i = 0; i < MINING_LIST_COUNT; i++)
+		{
+			mining_info[i].blockhash = mining_group[i]->text();
+			if (mining_info[i].blockhash == NULL) return i;
+
+			mining_info[i].amount = mining_amount_group[i]->text().toDouble();
+			mining_info[i].blockhash = mining_group[i]->text();
+			//mining_info[i].check_mining = tx_mining_group[i]->text();
+			//txmining_infoi].send_receive = tx_send_group[i]->text();
+		}
+		return MINING_LIST_COUNT;
+	}
+
+	void view_mining_list(Mining_info *mining_info, int mining_count, QLabel **mining_group, QLabel **mining_amount_group)
+	{
+		for (int i = 0; i < mining_count; i++)
+		{
+			mining_amount_group[i]->setText(QString::number(mining_info[i].amount));
+			mining_group[i]->setText(mining_info[i].blockhash);
+			//tx_mining_group[i]->setText(tx[i].check_mining);
+			//tx_txid_group[i]->setText(tx[i].txid);
+			//tx_send_group[i]->setText(tx[i].send_receive);
+		}
+	}
+
 
 private slots:
 	void on_closeBtn_clicked();
@@ -230,6 +270,7 @@ private slots:
 	void on_send_clicked();
 	void on_resettx_clicked();
 	void on_resetinfo_clicked();
+	void on_my_mining_button_clicked();
 
 	void on_block1_clicked();
 	void on_block2_clicked();
