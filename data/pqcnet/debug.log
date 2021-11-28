@@ -1,0 +1,559 @@
+
+
+
+
+
+2021-11-27T02:10:41Z Bitcoin Core version v22.99.0-gde2af19dc8e8c848afbc4b43b9b4092fe263364f (release build)
+2021-11-27T02:10:41Z Validating signatures for all blocks.
+2021-11-27T02:10:41Z Setting nMinimumChainWork=0000000000000000000000000000000000000000000000000000000000000000
+2021-11-27T02:10:41Z Using the 'standard' SHA256 implementation
+2021-11-27T02:10:41Z Default data directory C:\Users\JaeKyeom\AppData\Roaming\Bitcoin
+2021-11-27T02:10:41Z Using data directory C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet
+2021-11-27T02:10:41Z Config file: C:\Users\JaeKyeom\source\repos\GUI\data\bitcoin.conf (not found, skipping)
+2021-11-27T02:10:41Z Command-line arg: datadir="../data"
+2021-11-27T02:10:41Z Command-line arg: port="1111"
+2021-11-27T02:10:41Z Command-line arg: pqcnet=""
+2021-11-27T02:10:41Z Command-line arg: rpcport="1234"
+2021-11-27T02:10:41Z Command-line arg: txindex=""
+2021-11-27T02:10:41Z Using at most 125 automatic connections (2048 file descriptors available)
+2021-11-27T02:10:41Z Warning: relative datadir option '../data' specified, which will be interpreted relative to the current working directory 'C:\Users\JaeKyeom\source\repos\GUI\GUI'. This is fragile, because if bitcoin is started in the future from a different location, it will be unable to locate the current data files. There could also be data loss if bitcoin is started while in a temporary directory.
+2021-11-27T02:10:41Z Using 16 MiB out of 32/2 requested for signature cache, able to store 524288 elements
+2021-11-27T02:10:41Z Using 16 MiB out of 32/2 requested for script execution cache, able to store 524288 elements
+2021-11-27T02:10:41Z Script verification uses 3 additional threads
+2021-11-27T02:10:41Z scheduler thread start
+2021-11-27T02:10:42Z HTTP: creating work queue of depth 16
+2021-11-27T02:10:42Z Using random cookie authentication.
+2021-11-27T02:10:42Z Generated RPC authentication cookie C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\.cookie
+2021-11-27T02:10:42Z HTTP: starting 4 worker threads
+2021-11-27T02:10:42Z Using wallet directory C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\wallets
+2021-11-27T02:10:42Z init message: Verifying wallet(s)…
+2021-11-27T02:10:42Z Using /16 prefix for IP bucketing
+2021-11-27T02:10:42Z init message: Loading P2P addresses…
+2021-11-27T02:10:42Z Creating peers.dat because the file was not found ("C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\peers.dat")
+2021-11-27T02:10:42Z init message: Loading banlist…
+2021-11-27T02:10:42Z Recreating the banlist database
+2021-11-27T02:10:42Z SetNetworkActive: true
+2021-11-27T02:10:42Z Failed to read fee estimates from C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\fee_estimates.dat. Continue anyway.
+2021-11-27T02:10:42Z Cache configuration:
+2021-11-27T02:10:42Z * Using 2.0 MiB for block index database
+2021-11-27T02:10:42Z * Using 56.0 MiB for transaction index database
+2021-11-27T02:10:42Z * Using 8.0 MiB for chain state database
+2021-11-27T02:10:42Z * Using 384.0 MiB for in-memory UTXO set (plus up to 286.1 MiB of unused mempool space)
+2021-11-27T02:10:42Z init message: Loading block index…
+2021-11-27T02:10:42Z Switching active chainstate to Chainstate [ibd] @ height -1 (null)
+2021-11-27T02:10:42Z Opening LevelDB in C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\blocks\index
+2021-11-27T02:10:42Z Opened LevelDB successfully
+2021-11-27T02:10:42Z Using obfuscation key for C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\blocks\index: 0000000000000000
+2021-11-27T02:10:42Z LoadBlockIndexDB: last block file = 0
+2021-11-27T02:10:42Z LoadBlockIndexDB: last block file info: CBlockFileInfo(blocks=0, size=0, heights=0...0, time=1970-01-01...1970-01-01)
+2021-11-27T02:10:42Z Checking all blk files are present...
+2021-11-27T02:10:42Z Initializing databases...
+2021-11-27T02:10:42Z Opening LevelDB in C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\chainstate
+2021-11-27T02:10:42Z Opened LevelDB successfully
+2021-11-27T02:10:42Z Wrote new obfuscate key for C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\chainstate: 0feeab01a9d8283b
+2021-11-27T02:10:42Z Using obfuscation key for C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\chainstate: 0feeab01a9d8283b
+2021-11-27T02:10:42Z  block index             133ms
+2021-11-27T02:10:42Z Opening LevelDB in C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\indexes\txindex
+2021-11-27T02:10:42Z Opened LevelDB successfully
+2021-11-27T02:10:43Z Using obfuscation key for C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\indexes\txindex: 0000000000000000
+2021-11-27T02:10:43Z txindex thread start
+2021-11-27T02:10:43Z txindex is enabled
+2021-11-27T02:10:43Z loadblk thread start
+2021-11-27T02:10:43Z txindex thread exit
+2021-11-27T02:10:43Z UpdateTip: new best=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 height=0 version=0x00000001 log2_work=1.000000 tx=1 date='2011-02-02T23:16:42Z' progress=1.000000 cache=0.0MiB(0txo)
+2021-11-27T02:10:43Z block tree size = 1
+2021-11-27T02:10:43Z nBestHeight = 0
+2021-11-27T02:10:43Z Failed to open mempool file from disk. Continuing anyway.
+2021-11-27T02:10:43Z loadblk thread exit
+2021-11-27T02:10:43Z Bound to 127.0.0.1:18767
+2021-11-27T02:10:43Z torcontrol thread start
+2021-11-27T02:10:43Z Bound to [::]:1111
+2021-11-27T02:10:43Z Bound to 0.0.0.0:1111
+2021-11-27T02:10:43Z 0 block-relay-only anchors will be tried for connections.
+2021-11-27T02:10:43Z init message: Starting network threads…
+2021-11-27T02:10:43Z init message: Done loading
+2021-11-27T02:10:43Z dnsseed thread start
+2021-11-27T02:10:43Z addcon thread start
+2021-11-27T02:10:43Z net thread start
+2021-11-27T02:10:43Z 0 addresses found from DNS seeds
+2021-11-27T02:10:43Z opencon thread start
+2021-11-27T02:10:43Z dnsseed thread exit
+2021-11-27T02:10:43Z msghand thread start
+2021-11-27T02:11:44Z Adding fixed seeds as 60 seconds have passed and addrman is empty
+2021-11-27T02:17:20Z Using BerkeleyDB version Berkeley DB 4.8.30: (April 12, 2010)
+2021-11-27T02:17:20Z Using wallet C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\wallets\123\wallet.dat
+2021-11-27T02:17:20Z BerkeleyEnvironment::Open: LogDir=C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\wallets\123\database ErrorFile=C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\wallets\123\db.log
+2021-11-27T02:17:20Z init message: Loading wallet…
+2021-11-27T02:17:20Z [123] Wallet File Version = 10500
+2021-11-27T02:17:20Z [123] Keys: 0 plaintext, 0 encrypted, 0 w/ metadata, 0 total. Unknown wallet records: 0
+2021-11-27T02:17:56Z [123] keypool added 2000 keys (1000 internal), size=2000 (1000 internal)
+2021-11-27T02:17:56Z [123] LegacyScriptPubKeyMan::NewKeyPool rewrote keypool
+2021-11-27T02:17:56Z [123] Wallet completed loading in           36464ms
+2021-11-27T02:17:56Z [123] setKeyPool.size() = 2000
+2021-11-27T02:17:56Z [123] mapWallet.size() = 0
+2021-11-27T02:17:56Z [123] m_address_book.size() = 0
+2021-11-27T02:17:57Z [123] keypool reserve 1
+2021-11-27T02:17:57Z [123] keypool keep 1
+
+
+
+
+
+2021-11-27T02:19:08Z Bitcoin Core version v22.99.0-gde2af19dc8e8c848afbc4b43b9b4092fe263364f (release build)
+2021-11-27T02:19:08Z Validating signatures for all blocks.
+2021-11-27T02:19:08Z Setting nMinimumChainWork=0000000000000000000000000000000000000000000000000000000000000000
+2021-11-27T02:19:08Z Using the 'standard' SHA256 implementation
+2021-11-27T02:19:08Z Default data directory C:\Users\JaeKyeom\AppData\Roaming\Bitcoin
+2021-11-27T02:19:08Z Using data directory C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet
+2021-11-27T02:19:08Z Config file: C:\Users\JaeKyeom\source\repos\GUI\data\bitcoin.conf (not found, skipping)
+2021-11-27T02:19:08Z Command-line arg: datadir="../data"
+2021-11-27T02:19:08Z Command-line arg: port="1111"
+2021-11-27T02:19:08Z Command-line arg: pqcnet=""
+2021-11-27T02:19:08Z Command-line arg: rpcport="1234"
+2021-11-27T02:19:08Z Command-line arg: txindex=""
+2021-11-27T02:19:08Z Using at most 125 automatic connections (2048 file descriptors available)
+2021-11-27T02:19:08Z Warning: relative datadir option '../data' specified, which will be interpreted relative to the current working directory 'C:\Users\JaeKyeom\source\repos\GUI\GUI'. This is fragile, because if bitcoin is started in the future from a different location, it will be unable to locate the current data files. There could also be data loss if bitcoin is started while in a temporary directory.
+2021-11-27T02:19:08Z Using 16 MiB out of 32/2 requested for signature cache, able to store 524288 elements
+2021-11-27T02:19:09Z Using 16 MiB out of 32/2 requested for script execution cache, able to store 524288 elements
+2021-11-27T02:19:09Z Script verification uses 3 additional threads
+2021-11-27T02:19:09Z scheduler thread start
+2021-11-27T02:19:09Z HTTP: creating work queue of depth 16
+2021-11-27T02:19:09Z Using random cookie authentication.
+2021-11-27T02:19:09Z Generated RPC authentication cookie C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\.cookie
+2021-11-27T02:19:09Z HTTP: starting 4 worker threads
+2021-11-27T02:19:09Z Using wallet directory C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\wallets
+2021-11-27T02:19:09Z init message: Verifying wallet(s)…
+2021-11-27T02:19:09Z Using /16 prefix for IP bucketing
+2021-11-27T02:19:09Z init message: Loading P2P addresses…
+2021-11-27T02:19:09Z Loaded 0 addresses from peers.dat  2ms
+2021-11-27T02:19:09Z init message: Loading banlist…
+2021-11-27T02:19:09Z SetNetworkActive: true
+2021-11-27T02:19:09Z Failed to read fee estimates from C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\fee_estimates.dat. Continue anyway.
+2021-11-27T02:19:09Z Cache configuration:
+2021-11-27T02:19:09Z * Using 2.0 MiB for block index database
+2021-11-27T02:19:09Z * Using 56.0 MiB for transaction index database
+2021-11-27T02:19:09Z * Using 8.0 MiB for chain state database
+2021-11-27T02:19:09Z * Using 384.0 MiB for in-memory UTXO set (plus up to 286.1 MiB of unused mempool space)
+2021-11-27T02:19:09Z init message: Loading block index…
+2021-11-27T02:19:09Z Switching active chainstate to Chainstate [ibd] @ height -1 (null)
+2021-11-27T02:19:09Z Opening LevelDB in C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\blocks\index
+2021-11-27T02:19:09Z Opened LevelDB successfully
+2021-11-27T02:19:09Z Using obfuscation key for C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\blocks\index: 0000000000000000
+2021-11-27T02:19:09Z LoadBlockIndexDB: last block file = 0
+2021-11-27T02:19:09Z LoadBlockIndexDB: last block file info: CBlockFileInfo(blocks=0, size=0, heights=0...0, time=1970-01-01...1970-01-01)
+2021-11-27T02:19:09Z Checking all blk files are present...
+2021-11-27T02:19:09Z Initializing databases...
+2021-11-27T02:19:09Z Opening LevelDB in C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\chainstate
+2021-11-27T02:19:09Z Opened LevelDB successfully
+2021-11-27T02:19:09Z Using obfuscation key for C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\chainstate: 0feeab01a9d8283b
+2021-11-27T02:19:09Z  block index             110ms
+2021-11-27T02:19:09Z Opening LevelDB in C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\indexes\txindex
+2021-11-27T02:19:09Z Opened LevelDB successfully
+2021-11-27T02:19:09Z Using obfuscation key for C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\indexes\txindex: 0000000000000000
+2021-11-27T02:19:09Z txindex thread start
+2021-11-27T02:19:09Z loadblk thread start
+2021-11-27T02:19:09Z txindex is enabled
+2021-11-27T02:19:10Z txindex thread exit
+2021-11-27T02:19:10Z UpdateTip: new best=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 height=0 version=0x00000001 log2_work=1.000000 tx=1 date='2011-02-02T23:16:42Z' progress=1.000000 cache=0.0MiB(0txo)
+2021-11-27T02:19:10Z block tree size = 1
+2021-11-27T02:19:10Z nBestHeight = 0
+2021-11-27T02:19:10Z Failed to open mempool file from disk. Continuing anyway.
+2021-11-27T02:19:10Z loadblk thread exit
+2021-11-27T02:19:10Z torcontrol thread start
+2021-11-27T02:19:10Z Bound to 127.0.0.1:18767
+2021-11-27T02:19:10Z Bound to [::]:1111
+2021-11-27T02:19:10Z Bound to 0.0.0.0:1111
+2021-11-27T02:19:10Z 0 block-relay-only anchors will be tried for connections.
+2021-11-27T02:19:10Z init message: Starting network threads…
+2021-11-27T02:19:10Z init message: Done loading
+2021-11-27T02:19:10Z net thread start
+2021-11-27T02:19:10Z dnsseed thread start
+2021-11-27T02:19:10Z 0 addresses found from DNS seeds
+2021-11-27T02:19:10Z dnsseed thread exit
+2021-11-27T02:19:10Z opencon thread start
+2021-11-27T02:19:10Z msghand thread start
+2021-11-27T02:19:10Z addcon thread start
+2021-11-27T02:19:11Z Using BerkeleyDB version Berkeley DB 4.8.30: (April 12, 2010)
+2021-11-27T02:19:11Z Using wallet C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\wallets\123\wallet.dat
+2021-11-27T02:19:11Z BerkeleyEnvironment::Open: LogDir=C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\wallets\123\database ErrorFile=C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\wallets\123\db.log
+2021-11-27T02:19:12Z init message: Loading wallet…
+2021-11-27T02:19:18Z [123] Wallet File Version = 169900
+2021-11-27T02:19:18Z [123] Keys: 2001 plaintext, 0 encrypted, 2001 w/ metadata, 2001 total. Unknown wallet records: 0
+2021-11-27T02:19:18Z [123] Wallet completed loading in            6156ms
+2021-11-27T02:19:18Z [123] keypool added 1 keys (0 internal), size=2000 (1000 internal)
+2021-11-27T02:19:18Z [123] setKeyPool.size() = 2000
+2021-11-27T02:19:18Z [123] mapWallet.size() = 0
+2021-11-27T02:19:18Z [123] m_address_book.size() = 1
+2021-11-27T02:20:11Z Adding fixed seeds as 60 seconds have passed and addrman is empty
+
+
+
+
+
+2021-11-27T02:20:51Z Bitcoin Core version v22.99.0-gde2af19dc8e8c848afbc4b43b9b4092fe263364f (release build)
+2021-11-27T02:20:51Z Validating signatures for all blocks.
+2021-11-27T02:20:51Z Setting nMinimumChainWork=0000000000000000000000000000000000000000000000000000000000000000
+2021-11-27T02:20:51Z Using the 'standard' SHA256 implementation
+2021-11-27T02:20:51Z Default data directory C:\Users\JaeKyeom\AppData\Roaming\Bitcoin
+2021-11-27T02:20:51Z Using data directory C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet
+2021-11-27T02:20:51Z Config file: C:\Users\JaeKyeom\source\repos\GUI\data\bitcoin.conf (not found, skipping)
+2021-11-27T02:20:51Z Command-line arg: datadir="../data"
+2021-11-27T02:20:51Z Command-line arg: port="1111"
+2021-11-27T02:20:51Z Command-line arg: pqcnet=""
+2021-11-27T02:20:51Z Command-line arg: rpcport="1234"
+2021-11-27T02:20:51Z Command-line arg: txindex=""
+2021-11-27T02:20:51Z Using at most 125 automatic connections (2048 file descriptors available)
+2021-11-27T02:20:51Z Warning: relative datadir option '../data' specified, which will be interpreted relative to the current working directory 'C:\Users\JaeKyeom\source\repos\GUI\Release'. This is fragile, because if bitcoin is started in the future from a different location, it will be unable to locate the current data files. There could also be data loss if bitcoin is started while in a temporary directory.
+2021-11-27T02:20:51Z Using 16 MiB out of 32/2 requested for signature cache, able to store 524288 elements
+2021-11-27T02:20:51Z Using 16 MiB out of 32/2 requested for script execution cache, able to store 524288 elements
+2021-11-27T02:20:51Z Script verification uses 3 additional threads
+2021-11-27T02:20:51Z scheduler thread start
+2021-11-27T02:20:52Z HTTP: creating work queue of depth 16
+2021-11-27T02:20:52Z Using random cookie authentication.
+2021-11-27T02:20:52Z Generated RPC authentication cookie C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\.cookie
+2021-11-27T02:20:52Z HTTP: starting 4 worker threads
+2021-11-27T02:20:52Z Using wallet directory C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\wallets
+2021-11-27T02:20:52Z init message: Verifying wallet(s)…
+2021-11-27T02:20:52Z Using /16 prefix for IP bucketing
+2021-11-27T02:20:52Z init message: Loading P2P addresses…
+2021-11-27T02:20:52Z Loaded 0 addresses from peers.dat  3ms
+2021-11-27T02:20:52Z init message: Loading banlist…
+2021-11-27T02:20:52Z SetNetworkActive: true
+2021-11-27T02:20:52Z Failed to read fee estimates from C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\fee_estimates.dat. Continue anyway.
+2021-11-27T02:20:52Z Cache configuration:
+2021-11-27T02:20:52Z * Using 2.0 MiB for block index database
+2021-11-27T02:20:52Z * Using 56.0 MiB for transaction index database
+2021-11-27T02:20:52Z * Using 8.0 MiB for chain state database
+2021-11-27T02:20:52Z * Using 384.0 MiB for in-memory UTXO set (plus up to 286.1 MiB of unused mempool space)
+2021-11-27T02:20:52Z init message: Loading block index…
+2021-11-27T02:20:52Z Switching active chainstate to Chainstate [ibd] @ height -1 (null)
+2021-11-27T02:20:52Z Opening LevelDB in C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\blocks\index
+2021-11-27T02:20:52Z Opened LevelDB successfully
+2021-11-27T02:20:52Z Using obfuscation key for C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\blocks\index: 0000000000000000
+2021-11-27T02:20:52Z LoadBlockIndexDB: last block file = 0
+2021-11-27T02:20:52Z LoadBlockIndexDB: last block file info: CBlockFileInfo(blocks=0, size=0, heights=0...0, time=1970-01-01...1970-01-01)
+2021-11-27T02:20:52Z Checking all blk files are present...
+2021-11-27T02:20:52Z Initializing databases...
+2021-11-27T02:20:52Z Opening LevelDB in C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\chainstate
+2021-11-27T02:20:52Z Opened LevelDB successfully
+2021-11-27T02:20:52Z Using obfuscation key for C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\chainstate: 0feeab01a9d8283b
+2021-11-27T02:20:52Z  block index             100ms
+2021-11-27T02:20:52Z Opening LevelDB in C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\indexes\txindex
+2021-11-27T02:20:52Z ThreadRPCServer incorrect password attempt from 127.0.0.1:50456
+2021-11-27T02:20:52Z Opened LevelDB successfully
+2021-11-27T02:20:52Z Using obfuscation key for C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\indexes\txindex: 0000000000000000
+2021-11-27T02:20:52Z txindex thread start
+2021-11-27T02:20:52Z txindex is enabled
+2021-11-27T02:20:52Z loadblk thread start
+2021-11-27T02:20:52Z txindex thread exit
+2021-11-27T02:20:52Z UpdateTip: new best=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 height=0 version=0x00000001 log2_work=1.000000 tx=1 date='2011-02-02T23:16:42Z' progress=1.000000 cache=0.0MiB(0txo)
+2021-11-27T02:20:52Z block tree size = 1
+2021-11-27T02:20:52Z nBestHeight = 0
+2021-11-27T02:20:52Z Failed to open mempool file from disk. Continuing anyway.
+2021-11-27T02:20:52Z loadblk thread exit
+2021-11-27T02:20:52Z torcontrol thread start
+2021-11-27T02:20:52Z Bound to 127.0.0.1:18767
+2021-11-27T02:20:52Z Bound to [::]:1111
+2021-11-27T02:20:52Z Bound to 0.0.0.0:1111
+2021-11-27T02:20:52Z 0 block-relay-only anchors will be tried for connections.
+2021-11-27T02:20:52Z init message: Starting network threads…
+2021-11-27T02:20:52Z net thread start
+2021-11-27T02:20:52Z dnsseed thread start
+2021-11-27T02:20:52Z opencon thread start
+2021-11-27T02:20:52Z init message: Done loading
+2021-11-27T02:20:52Z addcon thread start
+2021-11-27T02:20:52Z 0 addresses found from DNS seeds
+2021-11-27T02:20:52Z msghand thread start
+2021-11-27T02:20:52Z dnsseed thread exit
+2021-11-27T02:20:54Z Using BerkeleyDB version Berkeley DB 4.8.30: (April 12, 2010)
+2021-11-27T02:20:54Z Using wallet C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\wallets\123\wallet.dat
+2021-11-27T02:20:54Z BerkeleyEnvironment::Open: LogDir=C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\wallets\123\database ErrorFile=C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\wallets\123\db.log
+2021-11-27T02:20:55Z init message: Loading wallet…
+2021-11-27T02:21:00Z [123] Wallet File Version = 169900
+2021-11-27T02:21:00Z [123] Keys: 2002 plaintext, 0 encrypted, 2002 w/ metadata, 2002 total. Unknown wallet records: 0
+2021-11-27T02:21:00Z [123] Wallet completed loading in            5699ms
+2021-11-27T02:21:00Z [123] setKeyPool.size() = 2000
+2021-11-27T02:21:00Z [123] mapWallet.size() = 0
+2021-11-27T02:21:00Z [123] m_address_book.size() = 1
+2021-11-27T02:21:53Z Adding fixed seeds as 60 seconds have passed and addrman is empty
+2021-11-27T02:24:52Z tor: Thread interrupt
+2021-11-27T02:24:52Z torcontrol thread exit
+2021-11-27T02:24:52Z Shutdown: In progress...
+2021-11-27T02:24:52Z opencon thread exit
+2021-11-27T02:24:52Z addcon thread exit
+2021-11-27T02:24:52Z net thread exit
+2021-11-27T02:24:52Z msghand thread exit
+2021-11-27T02:24:53Z DumpAnchors: Flush 0 outbound block-relay-only peer addresses to anchors.dat started
+2021-11-27T02:24:53Z DumpAnchors: Flush 0 outbound block-relay-only peer addresses to anchors.dat completed (0.01s)
+2021-11-27T02:24:53Z scheduler thread exit
+2021-11-27T02:24:53Z Writing 0 unbroadcast transactions to disk.
+2021-11-27T02:24:53Z Dumped mempool: 0.000174s to copy, 0.022376s to dump
+2021-11-27T02:24:53Z FlushStateToDisk: write coins cache to disk (0 coins, 0kB) started
+2021-11-27T02:24:53Z FlushStateToDisk: write coins cache to disk (0 coins, 0kB) completed (0.00s)
+2021-11-27T02:24:53Z FlushStateToDisk: write coins cache to disk (0 coins, 0kB) started
+2021-11-27T02:24:53Z FlushStateToDisk: write coins cache to disk (0 coins, 0kB) completed (0.00s)
+2021-11-27T02:24:53Z [123] Releasing wallet
+2021-11-27T02:24:53Z Shutdown: done
+
+
+
+
+
+2021-11-27T05:17:55Z Bitcoin Core version v22.99.0-gde2af19dc8e8c848afbc4b43b9b4092fe263364f (release build)
+2021-11-27T05:17:55Z Validating signatures for all blocks.
+2021-11-27T05:17:55Z Setting nMinimumChainWork=0000000000000000000000000000000000000000000000000000000000000000
+2021-11-27T05:17:55Z Using the 'standard' SHA256 implementation
+2021-11-27T05:17:55Z Default data directory C:\Users\JaeKyeom\AppData\Roaming\Bitcoin
+2021-11-27T05:17:55Z Using data directory C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet
+2021-11-27T05:17:55Z Config file: C:\Users\JaeKyeom\source\repos\GUI\data\bitcoin.conf (not found, skipping)
+2021-11-27T05:17:55Z Command-line arg: datadir="../data"
+2021-11-27T05:17:55Z Command-line arg: port="1111"
+2021-11-27T05:17:55Z Command-line arg: pqcnet=""
+2021-11-27T05:17:55Z Command-line arg: rpcport="1234"
+2021-11-27T05:17:55Z Command-line arg: txindex=""
+2021-11-27T05:17:55Z Using at most 125 automatic connections (2048 file descriptors available)
+2021-11-27T05:17:55Z Warning: relative datadir option '../data' specified, which will be interpreted relative to the current working directory 'C:\Users\JaeKyeom\source\repos\GUI\GUI'. This is fragile, because if bitcoin is started in the future from a different location, it will be unable to locate the current data files. There could also be data loss if bitcoin is started while in a temporary directory.
+2021-11-27T05:17:55Z Using 16 MiB out of 32/2 requested for signature cache, able to store 524288 elements
+2021-11-27T05:17:55Z Using 16 MiB out of 32/2 requested for script execution cache, able to store 524288 elements
+2021-11-27T05:17:55Z Script verification uses 3 additional threads
+2021-11-27T05:17:55Z scheduler thread start
+2021-11-27T05:17:55Z HTTP: creating work queue of depth 16
+2021-11-27T05:17:55Z Using random cookie authentication.
+2021-11-27T05:17:55Z Generated RPC authentication cookie C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\.cookie
+2021-11-27T05:17:55Z HTTP: starting 4 worker threads
+2021-11-27T05:17:55Z Using wallet directory C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\wallets
+2021-11-27T05:17:55Z init message: Verifying wallet(s)…
+2021-11-27T05:17:55Z Using /16 prefix for IP bucketing
+2021-11-27T05:17:55Z init message: Loading P2P addresses…
+2021-11-27T05:17:55Z Loaded 0 addresses from peers.dat  1ms
+2021-11-27T05:17:55Z init message: Loading banlist…
+2021-11-27T05:17:55Z SetNetworkActive: true
+2021-11-27T05:17:55Z Cache configuration:
+2021-11-27T05:17:55Z * Using 2.0 MiB for block index database
+2021-11-27T05:17:55Z * Using 56.0 MiB for transaction index database
+2021-11-27T05:17:55Z * Using 8.0 MiB for chain state database
+2021-11-27T05:17:55Z * Using 384.0 MiB for in-memory UTXO set (plus up to 286.1 MiB of unused mempool space)
+2021-11-27T05:17:55Z init message: Loading block index…
+2021-11-27T05:17:55Z Switching active chainstate to Chainstate [ibd] @ height -1 (null)
+2021-11-27T05:17:55Z Opening LevelDB in C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\blocks\index
+2021-11-27T05:17:55Z Opened LevelDB successfully
+2021-11-27T05:17:55Z Using obfuscation key for C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\blocks\index: 0000000000000000
+2021-11-27T05:17:55Z LoadBlockIndexDB: last block file = 0
+2021-11-27T05:17:55Z LoadBlockIndexDB: last block file info: CBlockFileInfo(blocks=1, size=293, heights=0...0, time=2011-02-02...2011-02-02)
+2021-11-27T05:17:55Z Checking all blk files are present...
+2021-11-27T05:17:55Z Opening LevelDB in C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\chainstate
+2021-11-27T05:17:55Z Opened LevelDB successfully
+2021-11-27T05:17:55Z Using obfuscation key for C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\chainstate: 0feeab01a9d8283b
+2021-11-27T05:17:55Z Loaded best chain: hashBestChain=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 height=0 date=2011-02-02T23:16:42Z progress=1.000000
+2021-11-27T05:17:55Z init message: Verifying blocks…
+2021-11-27T05:17:55Z  block index              54ms
+2021-11-27T05:17:55Z Opening LevelDB in C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\indexes\txindex
+2021-11-27T05:17:55Z Opened LevelDB successfully
+2021-11-27T05:17:55Z Using obfuscation key for C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\indexes\txindex: 0000000000000000
+2021-11-27T05:17:55Z txindex thread start
+2021-11-27T05:17:55Z txindex is enabled at height 0
+2021-11-27T05:17:55Z block tree size = 1
+2021-11-27T05:17:55Z nBestHeight = 0
+2021-11-27T05:17:55Z txindex thread exit
+2021-11-27T05:17:55Z loadblk thread start
+2021-11-27T05:17:55Z Imported mempool transactions from disk: 0 succeeded, 0 failed, 0 expired, 0 already there, 0 waiting for initial broadcast
+2021-11-27T05:17:55Z loadblk thread exit
+2021-11-27T05:17:55Z torcontrol thread start
+2021-11-27T05:17:55Z Bound to 127.0.0.1:18767
+2021-11-27T05:17:55Z Bound to [::]:1111
+2021-11-27T05:17:55Z Bound to 0.0.0.0:1111
+2021-11-27T05:17:55Z Loaded 0 addresses from "anchors.dat"
+2021-11-27T05:17:55Z 0 block-relay-only anchors will be tried for connections.
+2021-11-27T05:17:55Z init message: Starting network threads…
+2021-11-27T05:17:55Z init message: Done loading
+2021-11-27T05:17:55Z addcon thread start
+2021-11-27T05:17:55Z msghand thread start
+2021-11-27T05:17:55Z net thread start
+2021-11-27T05:17:55Z dnsseed thread start
+2021-11-27T05:17:55Z opencon thread start
+2021-11-27T05:17:55Z 0 addresses found from DNS seeds
+2021-11-27T05:17:55Z dnsseed thread exit
+2021-11-27T05:17:56Z ThreadRPCServer incorrect password attempt from 127.0.0.1:59546
+2021-11-27T05:17:57Z Using BerkeleyDB version Berkeley DB 4.8.30: (April 12, 2010)
+2021-11-27T05:17:57Z Using wallet C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\wallets\123\wallet.dat
+2021-11-27T05:17:57Z BerkeleyEnvironment::Open: LogDir=C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\wallets\123\database ErrorFile=C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\wallets\123\db.log
+2021-11-27T05:17:57Z init message: Loading wallet…
+2021-11-27T05:17:59Z [123] Wallet File Version = 169900
+2021-11-27T05:17:59Z [123] Keys: 2002 plaintext, 0 encrypted, 2002 w/ metadata, 2002 total. Unknown wallet records: 0
+2021-11-27T05:17:59Z [123] Wallet completed loading in            1672ms
+2021-11-27T05:17:59Z [123] setKeyPool.size() = 2000
+2021-11-27T05:17:59Z [123] mapWallet.size() = 0
+2021-11-27T05:17:59Z [123] m_address_book.size() = 1
+2021-11-27T05:18:56Z Adding fixed seeds as 60 seconds have passed and addrman is empty
+2021-11-27T05:50:11Z Potential stale tip detected, will try using extra outbound peer (last tip update: 1890 seconds ago)
+2021-11-27T06:00:41Z Potential stale tip detected, will try using extra outbound peer (last tip update: 2520 seconds ago)
+2021-11-27T06:11:11Z Potential stale tip detected, will try using extra outbound peer (last tip update: 3150 seconds ago)
+2021-11-27T06:21:42Z Potential stale tip detected, will try using extra outbound peer (last tip update: 3781 seconds ago)
+2021-11-27T06:32:12Z Potential stale tip detected, will try using extra outbound peer (last tip update: 4411 seconds ago)
+2021-11-27T06:42:42Z Potential stale tip detected, will try using extra outbound peer (last tip update: 5041 seconds ago)
+2021-11-27T06:53:12Z Potential stale tip detected, will try using extra outbound peer (last tip update: 5671 seconds ago)
+2021-11-27T07:03:42Z Potential stale tip detected, will try using extra outbound peer (last tip update: 6301 seconds ago)
+2021-11-27T07:14:12Z Potential stale tip detected, will try using extra outbound peer (last tip update: 6931 seconds ago)
+2021-11-27T07:24:43Z Potential stale tip detected, will try using extra outbound peer (last tip update: 7562 seconds ago)
+
+
+
+
+
+2021-11-28T02:25:08Z Bitcoin Core version v22.99.0-gde2af19dc8e8c848afbc4b43b9b4092fe263364f (release build)
+2021-11-28T02:25:08Z Validating signatures for all blocks.
+2021-11-28T02:25:08Z Setting nMinimumChainWork=0000000000000000000000000000000000000000000000000000000000000000
+2021-11-28T02:25:08Z Using the 'standard' SHA256 implementation
+2021-11-28T02:25:09Z Default data directory C:\Users\JaeKyeom\AppData\Roaming\Bitcoin
+2021-11-28T02:25:09Z Using data directory C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet
+2021-11-28T02:25:09Z Config file: C:\Users\JaeKyeom\source\repos\GUI\data\bitcoin.conf (not found, skipping)
+2021-11-28T02:25:09Z Command-line arg: datadir="../data"
+2021-11-28T02:25:09Z Command-line arg: port="1111"
+2021-11-28T02:25:09Z Command-line arg: pqcnet=""
+2021-11-28T02:25:09Z Command-line arg: rpcport="1234"
+2021-11-28T02:25:09Z Command-line arg: txindex=""
+2021-11-28T02:25:09Z Using at most 125 automatic connections (2048 file descriptors available)
+2021-11-28T02:25:09Z Warning: relative datadir option '../data' specified, which will be interpreted relative to the current working directory 'C:\Users\JaeKyeom\source\repos\GUI\Release'. This is fragile, because if bitcoin is started in the future from a different location, it will be unable to locate the current data files. There could also be data loss if bitcoin is started while in a temporary directory.
+2021-11-28T02:25:09Z Using 16 MiB out of 32/2 requested for signature cache, able to store 524288 elements
+2021-11-28T02:25:09Z Using 16 MiB out of 32/2 requested for script execution cache, able to store 524288 elements
+2021-11-28T02:25:09Z Script verification uses 3 additional threads
+2021-11-28T02:25:09Z scheduler thread start
+2021-11-28T02:25:09Z HTTP: creating work queue of depth 16
+2021-11-28T02:25:09Z Using random cookie authentication.
+2021-11-28T02:25:09Z Generated RPC authentication cookie C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\.cookie
+2021-11-28T02:25:09Z HTTP: starting 4 worker threads
+2021-11-28T02:25:09Z Using wallet directory C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\wallets
+2021-11-28T02:25:09Z init message: Verifying wallet(s)…
+2021-11-28T02:25:09Z Using /16 prefix for IP bucketing
+2021-11-28T02:25:09Z init message: Loading P2P addresses…
+2021-11-28T02:25:09Z Loaded 0 addresses from peers.dat  8ms
+2021-11-28T02:25:09Z init message: Loading banlist…
+2021-11-28T02:25:09Z SetNetworkActive: true
+2021-11-28T02:25:09Z Cache configuration:
+2021-11-28T02:25:09Z * Using 2.0 MiB for block index database
+2021-11-28T02:25:09Z * Using 56.0 MiB for transaction index database
+2021-11-28T02:25:09Z * Using 8.0 MiB for chain state database
+2021-11-28T02:25:09Z * Using 384.0 MiB for in-memory UTXO set (plus up to 286.1 MiB of unused mempool space)
+2021-11-28T02:25:09Z init message: Loading block index…
+2021-11-28T02:25:09Z Switching active chainstate to Chainstate [ibd] @ height -1 (null)
+2021-11-28T02:25:09Z Opening LevelDB in C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\blocks\index
+2021-11-28T02:25:09Z Opened LevelDB successfully
+2021-11-28T02:25:09Z Using obfuscation key for C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\blocks\index: 0000000000000000
+2021-11-28T02:25:09Z LoadBlockIndexDB: last block file = 0
+2021-11-28T02:25:09Z LoadBlockIndexDB: last block file info: CBlockFileInfo(blocks=1, size=293, heights=0...0, time=2011-02-02...2011-02-02)
+2021-11-28T02:25:09Z Checking all blk files are present...
+2021-11-28T02:25:09Z Opening LevelDB in C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\chainstate
+2021-11-28T02:25:09Z Opened LevelDB successfully
+2021-11-28T02:25:09Z Using obfuscation key for C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\chainstate: 0feeab01a9d8283b
+2021-11-28T02:25:09Z Loaded best chain: hashBestChain=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 height=0 date=2011-02-02T23:16:42Z progress=1.000000
+2021-11-28T02:25:09Z init message: Verifying blocks…
+2021-11-28T02:25:09Z  block index              90ms
+2021-11-28T02:25:09Z Opening LevelDB in C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\indexes\txindex
+2021-11-28T02:25:09Z Opened LevelDB successfully
+2021-11-28T02:25:09Z Using obfuscation key for C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\indexes\txindex: 0000000000000000
+2021-11-28T02:25:09Z txindex thread start
+2021-11-28T02:25:09Z txindex is enabled at height 0
+2021-11-28T02:25:09Z block tree size = 1
+2021-11-28T02:25:09Z loadblk thread start
+2021-11-28T02:25:09Z nBestHeight = 0
+2021-11-28T02:25:09Z txindex thread exit
+2021-11-28T02:25:09Z Imported mempool transactions from disk: 0 succeeded, 0 failed, 0 expired, 0 already there, 0 waiting for initial broadcast
+2021-11-28T02:25:09Z loadblk thread exit
+2021-11-28T02:25:09Z torcontrol thread start
+2021-11-28T02:25:09Z Bound to 127.0.0.1:18767
+2021-11-28T02:25:09Z Bound to [::]:1111
+2021-11-28T02:25:09Z Bound to 0.0.0.0:1111
+2021-11-28T02:25:09Z 0 block-relay-only anchors will be tried for connections.
+2021-11-28T02:25:09Z init message: Starting network threads…
+2021-11-28T02:25:09Z net thread start
+2021-11-28T02:25:09Z init message: Done loading
+2021-11-28T02:25:09Z dnsseed thread start
+2021-11-28T02:25:09Z addcon thread start
+2021-11-28T02:25:09Z opencon thread start
+2021-11-28T02:25:09Z 0 addresses found from DNS seeds
+2021-11-28T02:25:09Z dnsseed thread exit
+2021-11-28T02:25:09Z msghand thread start
+2021-11-28T02:25:09Z ThreadRPCServer incorrect password attempt from 127.0.0.1:51169
+2021-11-28T02:25:11Z Using BerkeleyDB version Berkeley DB 4.8.30: (April 12, 2010)
+2021-11-28T02:25:11Z Using wallet C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\wallets\123\wallet.dat
+2021-11-28T02:25:11Z BerkeleyEnvironment::Open: LogDir=C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\wallets\123\database ErrorFile=C:\Users\JaeKyeom\source\repos\GUI\data\pqcnet\wallets\123\db.log
+2021-11-28T02:25:11Z init message: Loading wallet…
+2021-11-28T02:25:14Z [123] Wallet File Version = 169900
+2021-11-28T02:25:14Z [123] Keys: 2002 plaintext, 0 encrypted, 2002 w/ metadata, 2002 total. Unknown wallet records: 0
+2021-11-28T02:25:14Z [123] Wallet completed loading in            2949ms
+2021-11-28T02:25:14Z [123] setKeyPool.size() = 2000
+2021-11-28T02:25:14Z [123] mapWallet.size() = 0
+2021-11-28T02:25:14Z [123] m_address_book.size() = 1
+2021-11-28T02:26:10Z Adding fixed seeds as 60 seconds have passed and addrman is empty
+2021-11-28T02:41:03Z [123] keypool reserve 2
+2021-11-28T02:41:03Z [123] keypool keep 2
+2021-11-28T02:41:03Z CreateNewBlock(): block weight: 884 txs: 0 fees: 0 sigops 400
+2021-11-28T02:41:03Z Leaving InitialBlockDownload (latching to false)
+2021-11-28T02:41:03Z UpdateTip: new best=2d1efec5a0c2f40dddaeb947990012278bc6915f7754422040287b866fc11a6c height=1 version=0x20000000 log2_work=2.000000 tx=2 date='2021-11-28T02:41:03Z' progress=1.000000 cache=0.0MiB(1txo)
+2021-11-28T02:41:03Z [123] AddToWallet d2a524ff93f281356e9b6060017d5a713d1df7ffdfdb1276568c9fcf7c917bad  new
+2021-11-28T02:41:05Z [123] keypool added 1 keys (0 internal), size=2000 (1000 internal)
+2021-11-28T02:41:05Z [123] keypool reserve 3
+2021-11-28T02:41:05Z [123] keypool keep 3
+2021-11-28T02:41:05Z CreateNewBlock(): block weight: 884 txs: 0 fees: 0 sigops 400
+2021-11-28T02:41:05Z UpdateTip: new best=569a62c97ad9885b26236ad6feb814443edd7733904a9c5d2cce3c5c1b926f05 height=2 version=0x20000000 log2_work=2.584963 tx=3 date='2021-11-28T02:41:05Z' progress=1.000000 cache=0.0MiB(2txo)
+2021-11-28T02:41:05Z [123] AddToWallet b5328da2b5853c3f863538d517cafe54d681eb07b6efc1424fb8dff487372eb3  new
+2021-11-28T02:41:06Z [123] keypool added 1 keys (0 internal), size=2000 (1000 internal)
+2021-11-28T02:41:06Z [123] keypool reserve 4
+2021-11-28T02:41:06Z [123] keypool keep 4
+2021-11-28T02:41:06Z CreateNewBlock(): block weight: 884 txs: 0 fees: 0 sigops 400
+2021-11-28T02:41:06Z UpdateTip: new best=70829d8a65efa71e45341540ac68347f47b1ad208cb62433c4cc245f7e94959b height=3 version=0x20000000 log2_work=3.000000 tx=4 date='2021-11-28T02:41:06Z' progress=1.000000 cache=0.0MiB(3txo)
+2021-11-28T02:41:06Z [123] AddToWallet fbeeb9af83e430b28a29d9edb86620d7b058a562956c062320e60f8be6873a2f  new
+2021-11-28T02:41:07Z [123] keypool added 1 keys (0 internal), size=2000 (1000 internal)
+2021-11-28T02:41:07Z [123] keypool reserve 5
+2021-11-28T02:41:07Z [123] keypool keep 5
+2021-11-28T02:41:07Z CreateNewBlock(): block weight: 884 txs: 0 fees: 0 sigops 400
+2021-11-28T02:41:07Z UpdateTip: new best=7d69180b05241fbe159083f5a648ae34615ef374939ee502755f5594401c0c05 height=4 version=0x20000000 log2_work=3.321928 tx=5 date='2021-11-28T02:41:07Z' progress=1.000000 cache=0.0MiB(4txo)
+2021-11-28T02:41:07Z [123] AddToWallet d5c7bf095c72ef9a4eda7c6c7290ed7e34459884bbf103d1578a2e29af8390e1  new
+2021-11-28T02:41:07Z [123] keypool added 1 keys (0 internal), size=2000 (1000 internal)
+2021-11-28T02:41:07Z [123] keypool reserve 6
+2021-11-28T02:41:07Z [123] keypool keep 6
+2021-11-28T02:41:07Z CreateNewBlock(): block weight: 884 txs: 0 fees: 0 sigops 400
+2021-11-28T02:41:07Z UpdateTip: new best=5b345ca01e17b88107fd04966b3605145f5b798196ab3575ddd33dc5a2c142c0 height=5 version=0x20000000 log2_work=3.584963 tx=6 date='2021-11-28T02:41:07Z' progress=1.000000 cache=0.0MiB(5txo)
+2021-11-28T02:41:07Z [123] AddToWallet e544bb6eb4d07e381b5aca07c1b7ec54c4c49290bd61391e96b5d7e72ab2069d  new
+2021-11-28T02:41:08Z [123] keypool added 1 keys (0 internal), size=2000 (1000 internal)
+2021-11-28T02:41:08Z [123] keypool reserve 7
+2021-11-28T02:41:08Z [123] keypool keep 7
+2021-11-28T02:41:08Z CreateNewBlock(): block weight: 884 txs: 0 fees: 0 sigops 400
+2021-11-28T02:41:08Z UpdateTip: new best=71f858900c9ec4fa8b438e870378e6eca1245674628d7c54ec2f4c65ba615924 height=6 version=0x20000000 log2_work=3.807355 tx=7 date='2021-11-28T02:41:08Z' progress=1.000000 cache=0.0MiB(6txo)
+2021-11-28T02:41:08Z [123] AddToWallet 122eda5e7a77aaea99297dcc8566b00214f3eee9cbb3b4b9c90ed19b51f33b6a  new
+2021-11-28T02:41:08Z [123] keypool added 1 keys (0 internal), size=2000 (1000 internal)
+2021-11-28T02:41:08Z [123] keypool reserve 8
+2021-11-28T02:41:08Z [123] keypool keep 8
+2021-11-28T02:41:09Z CreateNewBlock(): block weight: 884 txs: 0 fees: 0 sigops 400
+2021-11-28T02:41:09Z UpdateTip: new best=56aaf01634d2c73281fa8c31a6d6dfd786f37ffff73f404de1d2b1f1f366d4d4 height=7 version=0x20000000 log2_work=4.000000 tx=8 date='2021-11-28T02:41:09Z' progress=1.000000 cache=0.0MiB(7txo)
+2021-11-28T02:41:09Z [123] AddToWallet aee76b6050d79051edbfac70b4d111702295b90a67e23d1fbf265cb9feba9e73  new
+2021-11-28T02:41:09Z [123] keypool added 1 keys (0 internal), size=2000 (1000 internal)
+2021-11-28T02:41:09Z [123] keypool reserve 9
+2021-11-28T02:41:09Z [123] keypool keep 9
+2021-11-28T02:41:09Z CreateNewBlock(): block weight: 884 txs: 0 fees: 0 sigops 400
+2021-11-28T02:41:09Z UpdateTip: new best=7953558bddb79cc3ad056ffea42ec08a0d66b262f9667da1b3adfb0b24afb41d height=8 version=0x20000000 log2_work=4.169925 tx=9 date='2021-11-28T02:41:09Z' progress=1.000000 cache=0.0MiB(8txo)
+2021-11-28T02:41:09Z [123] AddToWallet 716d11d0f180fb7853b3bcc680a4fe8fec96ce0f6d399ae08806d7bf717e0eca  new
+2021-11-28T02:41:10Z [123] keypool added 1 keys (0 internal), size=2000 (1000 internal)
+2021-11-28T02:41:10Z [123] keypool reserve 10
+2021-11-28T02:41:10Z [123] keypool keep 10
+2021-11-28T02:41:10Z CreateNewBlock(): block weight: 884 txs: 0 fees: 0 sigops 400
+2021-11-28T02:41:10Z UpdateTip: new best=4045468951b2236296c3afa909631b6d54ee4042d5696be68201dd02ef16197c height=9 version=0x20000000 log2_work=4.321928 tx=10 date='2021-11-28T02:41:10Z' progress=1.000000 cache=0.0MiB(9txo)
+2021-11-28T02:41:10Z [123] AddToWallet 8e65606caaa4c346380d13c07b3d0a74a5f397c35ba225890e8575adea8f532e  new
+2021-11-28T02:41:10Z [123] keypool added 1 keys (0 internal), size=2000 (1000 internal)
+2021-11-28T02:41:10Z [123] keypool reserve 11
+2021-11-28T02:41:10Z [123] keypool keep 11
+2021-11-28T02:41:11Z CreateNewBlock(): block weight: 884 txs: 0 fees: 0 sigops 400
+2021-11-28T02:41:11Z UpdateTip: new best=1b43f3622446ae005d97816924d39614564d4a0702e54c38546753fc03526134 height=10 version=0x20000000 log2_work=4.459432 tx=11 date='2021-11-28T02:41:11Z' progress=1.000000 cache=0.0MiB(10txo)
+2021-11-28T02:41:11Z [123] AddToWallet 2bce674194f04d8a28076636bc4e0afeb9722f6d5b29c510bdd860edfb252b4e  new
+2021-11-28T02:41:11Z [123] keypool added 1 keys (0 internal), size=2000 (1000 internal)
+2021-11-28T02:41:11Z [123] keypool reserve 12
+2021-11-28T02:41:11Z [123] keypool keep 12
+2021-11-28T02:41:11Z CreateNewBlock(): block weight: 884 txs: 0 fees: 0 sigops 400
+2021-11-28T02:41:11Z UpdateTip: new best=1092cbc7d505a60d26e8263773f2a485d73b8f50150fb3b08465df97c0e903c3 height=11 version=0x20000000 log2_work=4.584963 tx=12 date='2021-11-28T02:41:11Z' progress=1.000000 cache=0.0MiB(11txo)
+2021-11-28T02:41:11Z [123] AddToWallet 2567b8fe6b71100e4b442234e80354e4951400e40d1f2301621d7e8bc1af5b8d  new
+2021-11-28T02:41:12Z [123] keypool added 1 keys (0 internal), size=2000 (1000 internal)
+2021-11-28T02:41:12Z [123] keypool reserve 13
+2021-11-28T02:41:12Z [123] keypool keep 13
+2021-11-28T02:41:12Z CreateNewBlock(): block weight: 884 txs: 0 fees: 0 sigops 400
+2021-11-28T02:41:12Z UpdateTip: new best=03649f30991c1b792c5b350e4da0481c7735fbf32200cdf9a48e522458d88b01 height=12 version=0x20000000 log2_work=4.700440 tx=13 date='2021-11-28T02:41:12Z' progress=1.000000 cache=0.0MiB(12txo)
+2021-11-28T02:41:12Z [123] AddToWallet dc9e389d8af71793b169bbfe211240e0fac8d2253ce1d1911e3baa19f31bcd02  new

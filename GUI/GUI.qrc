@@ -1,0 +1,45 @@
+<RCC>
+  <qresource prefix="GUI"/>
+  <qresource prefix="Backspace">
+    <file>image/leftbutton.png</file>
+    <file>image/leftbutton2.png</file>
+  </qresource>
+  <qresource prefix="cat">
+    <file>image/maincat.png</file>
+    <file>image/cat.png</file>
+  </qresource>
+  <qresource prefix="RightButton">
+    <file>image/right.png</file>
+  </qresource>
+  <qresource prefix="LeftButton">
+    <file>image/left.png</file>
+  </qresource>
+  <qresource prefix="Refresh">
+    <file>image/Refresh.png</file>
+    <file>image/Refreshpre.png</file>
+  </qresource>
+  <qresource prefix="Mining">
+    <file>image/Mining.png</file>
+  </qresource>
+  <qresource prefix="Mining-pre">
+    <file>image/Miningpre.png</file>
+  </qresource>
+  <qresource prefix="Transaction">
+    <file>image/Transaction.png</file>
+  </qresource>
+  <qresource prefix="Transaction-pre">
+    <file>image/Transactionpre.png</file>
+  </qresource>
+  <qresource prefix="Wallet-pre">
+    <file>image/Walletpre.png</file>
+  </qresource>
+  <qresource prefix="Wallet">
+    <file>image/Wallet.png</file>
+  </qresource>
+  <qresource prefix="DashBoard-pre">
+    <file>image/DashBoardpre.png</file>
+  </qresource>
+  <qresource prefix="DashBoard">
+    <file>image/DashBoardComplete.png</file>
+  </qresource>
+</RCC>
